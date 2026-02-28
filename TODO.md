@@ -115,10 +115,10 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.2 — categories
-- [ ] Migration `supabase/migrations/0002_categories.sql`: tabella (id UUID, name, slug UNIQUE, description, image_url, parent_id self-ref, sort_order, is_active, timestamps). Indici su slug e parent_id. RLS: SELECT pubblico (is_active=true), INSERT/UPDATE/DELETE solo admin
-- [ ] `lib/validators/categories.ts`: name min 2, slug regex `^[a-z0-9-]+$`
-- [ ] Types, test Zod
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0002_categories.sql`: tabella (id UUID, name, slug UNIQUE, description, image_url, parent_id self-ref, sort_order, is_active, timestamps). Indici su slug e parent_id. RLS: SELECT pubblico (is_active=true), INSERT/UPDATE/DELETE solo admin
+- [x] `lib/validators/categories.ts`: name min 2, slug regex `^[a-z0-9-]+$`
+- [x] Types, test Zod
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.3 — products
 - [ ] Migration `supabase/migrations/0003_products.sql`: tabella (id, name, slug UNIQUE, description, rich_description, price NUMERIC(10,2) CHECK>=0, compare_at_price, cost_price, sku UNIQUE, barcode, stock_quantity CHECK>=0, low_stock_threshold, weight_grams, category_id FK, is_active, is_featured, seo_title, seo_description, timestamps). Indici: slug, category_id, is_active, (is_featured+is_active). RLS: SELECT pubblico (is_active=true), resto admin
