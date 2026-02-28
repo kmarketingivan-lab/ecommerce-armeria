@@ -21,14 +21,14 @@
 ## FASE 3 — UI Components (componenti riutilizzabili)
 
 ### Task 3.1 — Form components base
-- [ ] `components/ui/input.tsx`: Input con label, error message, forwarded ref, varianti (text, email, number, password, search). Props: label, error, description, required
-- [ ] `components/ui/textarea.tsx`: Textarea con label, error, character count opzionale
-- [ ] `components/ui/select.tsx`: Select nativo con label, error, options array
-- [ ] `components/ui/checkbox.tsx`: Checkbox con label
-- [ ] `components/ui/button.tsx`: Button con varianti (primary, secondary, danger, ghost), sizes (sm, md, lg), loading state con spinner, disabled
-- [ ] `components/ui/form-field.tsx`: Wrapper che compone label + input + error message
-- [ ] Tutti i componenti usano Tailwind, sono client components dove serve (onChange), hanno props tipizzate
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `components/ui/input.tsx`: Input con label, error message, forwarded ref, varianti (text, email, number, password, search). Props: label, error, description, required
+- [x] `components/ui/textarea.tsx`: Textarea con label, error, character count opzionale
+- [x] `components/ui/select.tsx`: Select nativo con label, error, options array
+- [x] `components/ui/checkbox.tsx`: Checkbox con label
+- [x] `components/ui/button.tsx`: Button con varianti (primary, secondary, danger, ghost), sizes (sm, md, lg), loading state con spinner, disabled
+- [x] `components/ui/form-field.tsx`: Wrapper che compone label + input + error message
+- [x] Tutti i componenti usano Tailwind, sono client components dove serve (onChange), hanno props tipizzate
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 ### Task 3.2 — Layout components
 - [ ] `components/layout/admin-sidebar.tsx`: Sidebar navigazione admin con link a: Dashboard, Prodotti, Categorie, Ordini, Prenotazioni, Blog, Pagine, Media, Impostazioni. Icone con Lucide React. Active state basato su pathname. Collapsibile su mobile
 - [ ] `components/layout/admin-header.tsx`: Header admin con breadcrumb, nome utente, logout button
