@@ -3,8 +3,13 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth/helpers";
+import { z } from "zod/v4";
 import { logAuditEvent } from "@/lib/utils/audit";
 import { logger } from "@/lib/utils/logger";
+
+const orderNoteSchema = z.object({
+  note: z.string().min(1, "La nota non può essere vuota").max(2000, "La nota è troppo lunga"),
+});
 
 /** Valid order status transitions */
 const VALID_TRANSITIONS: Record<string, string[]> = {
@@ -90,6 +95,13 @@ export async function addOrderNote(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
+
+    const parsed = orderNoteSchema.safeParse({ note });
+    if (!parsed.success) {
+      return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
+    }
+    const validatedNote = parsed.data.note;
+
     const supabase = await createClient();
 
     const { data: order } = await supabase
@@ -105,8 +117,8 @@ export async function addOrderNote(
     const existingNotes = order.notes ?? "";
     const timestamp = new Date().toISOString();
     const updatedNotes = existingNotes
-      ? `${existingNotes}\n\n[${timestamp}] ${note}`
-      : `[${timestamp}] ${note}`;
+      ? `${existingNotes}\n\n[${timestamp}] ${validatedNote}`
+      : `[${timestamp}] ${validatedNote}`;
 
     const { error } = await supabase
       .from("orders")

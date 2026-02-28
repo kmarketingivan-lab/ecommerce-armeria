@@ -8,6 +8,7 @@ import { slugify } from "@/lib/utils/slugify";
 import { logAuditEvent } from "@/lib/utils/audit";
 import { logger } from "@/lib/utils/logger";
 import { stripUndefined } from "@/lib/utils/supabase-helpers";
+import { sanitizeHtml } from "@/lib/utils/sanitize";
 
 /**
  * Create a new product.
@@ -24,7 +25,7 @@ export async function createProduct(
       name: formData.get("name"),
       slug: formData.get("slug") || slugify(String(formData.get("name") ?? "")),
       description: formData.get("description") || null,
-      rich_description: formData.get("rich_description") || null,
+      rich_description: formData.get("rich_description") ? sanitizeHtml(String(formData.get("rich_description"))) : null,
       price: Number(formData.get("price")),
       compare_at_price: formData.get("compare_at_price")
         ? Number(formData.get("compare_at_price"))
@@ -89,7 +90,7 @@ export async function updateProduct(
       name: formData.get("name"),
       slug: formData.get("slug"),
       description: formData.get("description") || null,
-      rich_description: formData.get("rich_description") || null,
+      rich_description: formData.get("rich_description") ? sanitizeHtml(String(formData.get("rich_description"))) : null,
       price: Number(formData.get("price")),
       compare_at_price: formData.get("compare_at_price")
         ? Number(formData.get("compare_at_price"))
