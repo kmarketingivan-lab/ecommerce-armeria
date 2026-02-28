@@ -1,5 +1,11 @@
 import { createClient } from "@/lib/supabase/server";
-import type { Product } from "@/types/database";
+import type { Product, ProductImage, ProductVariant } from "@/types/database";
+
+/** Product with related images and variants. */
+export type ProductWithRelations = Product & {
+  product_images: ProductImage[];
+  product_variants: ProductVariant[];
+};
 
 interface GetProductsOptions {
   page?: number;
@@ -74,7 +80,7 @@ export async function getProducts(
  * @param slug - The product slug
  * @returns Product with images and variants, or null
  */
-export async function getProductBySlug(slug: string) {
+export async function getProductBySlug(slug: string): Promise<ProductWithRelations | null> {
   const supabase = await createClient();
 
   const { data, error } = await supabase
@@ -88,7 +94,7 @@ export async function getProductBySlug(slug: string) {
     throw error;
   }
 
-  return data;
+  return data as unknown as ProductWithRelations;
 }
 
 /**
