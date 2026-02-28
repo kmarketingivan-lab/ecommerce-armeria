@@ -123,44 +123,44 @@
 ## FASE 5 — Storefront (pagine pubbliche)
 
 ### Task 5.1 — Homepage
-- [ ] `app/(storefront)/page.tsx`: Homepage con: hero section (titolo, sottotitolo, CTA), prodotti in evidenza (is_featured, max 8, griglia), categorie principali con immagine, CTA prenotazioni. Dati dal DAL, tutto server-rendered
-- [ ] `components/storefront/product-card.tsx`: Card prodotto — immagine, nome, prezzo (con compare_at_price barrato se presente), badge "In evidenza", link a dettaglio
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/page.tsx`: Homepage con: hero section (titolo, sottotitolo, CTA), prodotti in evidenza (is_featured, max 8, griglia), categorie principali con immagine, CTA prenotazioni. Dati dal DAL, tutto server-rendered
+- [x] `components/storefront/product-card.tsx`: Card prodotto — immagine, nome, prezzo (con compare_at_price barrato se presente), badge "In evidenza", link a dettaglio
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.2 — Catalogo prodotti
-- [ ] `app/(storefront)/products/page.tsx`: Griglia prodotti con filtro categoria (sidebar o dropdown), ricerca, ordinamento (prezzo asc/desc, nome, recenti), paginazione. URL search params per filtri persistenti
-- [ ] `app/(storefront)/products/[slug]/page.tsx`: Dettaglio prodotto — galleria immagini, nome, prezzo, descrizione rich, varianti selezionabili, selettore quantità, bottone "Aggiungi al carrello", prodotti correlati. generateMetadata per SEO
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/products/page.tsx`: Griglia prodotti con filtro categoria (sidebar o dropdown), ricerca, ordinamento (prezzo asc/desc, nome, recenti), paginazione. URL search params per filtri persistenti
+- [x] `app/(storefront)/products/[slug]/page.tsx`: Dettaglio prodotto — galleria immagini, nome, prezzo, descrizione rich, varianti selezionabili, selettore quantità, bottone "Aggiungi al carrello", prodotti correlati. generateMetadata per SEO
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.3 — Carrello
-- [ ] `app/(storefront)/cart/page.tsx`: Pagina carrello — lista items con immagine, nome, prezzo, quantità modificabile, rimuovi, subtotale per riga. Totali: subtotale, IVA, spedizione, totale. Bottone "Procedi al checkout". Carrello vuoto: messaggio + link catalogo
-- [ ] `components/storefront/cart-icon.tsx`: Icona carrello nell'header con counter items. Client component che legge cart da cookie
-- [ ] `components/storefront/add-to-cart-button.tsx`: Bottone con loading state, feedback toast "Aggiunto al carrello"
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/cart/page.tsx`: Pagina carrello — lista items con immagine, nome, prezzo, quantità modificabile, rimuovi, subtotale per riga. Totali: subtotale, IVA, spedizione, totale. Bottone "Procedi al checkout". Carrello vuoto: messaggio + link catalogo
+- [x] `components/storefront/cart-icon.tsx`: Icona carrello nell'header con counter items. Client component che legge cart da cookie
+- [x] `components/storefront/add-to-cart-button.tsx`: Bottone con loading state, feedback toast "Aggiunto al carrello"
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.4 — Checkout
-- [ ] `app/(storefront)/checkout/page.tsx`: Form checkout — sezione dati cliente (nome, email, telefono), indirizzo spedizione (via, città, CAP, provincia, paese), indirizzo fatturazione (checkbox "uguale a spedizione"), riepilogo ordine, note. Submit chiama createOrder server action
-- [ ] `app/(storefront)/checkout/success/page.tsx`: Pagina conferma ordine — "Grazie per il tuo ordine!", numero ordine, riepilogo, "Il pagamento verrà gestito separatamente" (Stripe non integrato)
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/checkout/page.tsx`: Form checkout — sezione dati cliente (nome, email, telefono), indirizzo spedizione (via, città, CAP, provincia, paese), indirizzo fatturazione (checkbox "uguale a spedizione"), riepilogo ordine, note. Submit chiama createOrder server action
+- [x] `app/(storefront)/checkout/success/page.tsx`: Pagina conferma ordine — "Grazie per il tuo ordine!", numero ordine, riepilogo, "Il pagamento verrà gestito separatamente" (Stripe non integrato)
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.5 — Blog pubblico
-- [ ] `app/(storefront)/blog/page.tsx`: Lista post pubblicati con cover image, titolo, excerpt, data, tags. Paginazione
-- [ ] `app/(storefront)/blog/[slug]/page.tsx`: Dettaglio post — cover image, titolo, data, autore, rich_content renderizzato, tags. generateMetadata per SEO
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/blog/page.tsx`: Lista post pubblicati con cover image, titolo, excerpt, data, tags. Paginazione
+- [x] `app/(storefront)/blog/[slug]/page.tsx`: Dettaglio post — cover image, titolo, data, autore, rich_content renderizzato, tags. generateMetadata per SEO
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.6 — Prenotazioni pubbliche
-- [ ] `app/(storefront)/bookings/page.tsx`: Lista servizi prenotabili con nome, descrizione, durata, prezzo. Selezione servizio → selettore data → slot disponibili calcolati dal DAL → form dati cliente → conferma
-- [ ] `components/storefront/booking-calendar.tsx`: Calendario selezione data (mese corrente + navigazione). Giorni con disponibilità evidenziati. Click su giorno → mostra slot orari disponibili
-- [ ] `components/storefront/booking-form.tsx`: Form prenotazione — nome, email, telefono, note. Submit chiama createBooking
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/bookings/page.tsx`: Lista servizi prenotabili con nome, descrizione, durata, prezzo. Selezione servizio → selettore data → slot disponibili calcolati dal DAL → form dati cliente → conferma
+- [x] `components/storefront/booking-calendar.tsx`: Calendario selezione data (mese corrente + navigazione). Giorni con disponibilità evidenziati. Click su giorno → mostra slot orari disponibili
+- [x] `components/storefront/booking-form.tsx`: Form prenotazione — nome, email, telefono, note. Submit chiama createBooking
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 5.7 — Pagine statiche + Account
-- [ ] `app/(storefront)/[slug]/page.tsx`: Pagina dinamica che carica da pages per slug. generateMetadata. 404 se non trovata
-- [ ] `app/(storefront)/account/page.tsx`: Area utente — profilo (nome, email, telefono, modifica), storico ordini, storico prenotazioni. Protetta da auth
-- [ ] `app/(storefront)/auth/login/page.tsx`: Form login (email + password), link a registrazione e reset password
-- [ ] `app/(storefront)/auth/register/page.tsx`: Form registrazione (nome, email, password, conferma password)
-- [ ] `app/(storefront)/auth/reset-password/page.tsx`: Form reset password (email)
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/[slug]/page.tsx`: Pagina dinamica che carica da pages per slug. generateMetadata. 404 se non trovata
+- [x] `app/(storefront)/account/page.tsx`: Area utente — profilo (nome, email, telefono, modifica), storico ordini, storico prenotazioni. Protetta da auth
+- [x] `app/(storefront)/auth/login/page.tsx`: Form login (email + password), link a registrazione e reset password
+- [x] `app/(storefront)/auth/register/page.tsx`: Form registrazione (nome, email, password, conferma password)
+- [x] `app/(storefront)/auth/reset-password/page.tsx`: Form reset password (email)
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 ---
 
 ## FASE 6 — Security Hardening
