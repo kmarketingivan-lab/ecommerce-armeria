@@ -238,11 +238,11 @@
 - [x] Test
 - [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 ### Task 2.10 — Cart logic
-- [ ] `lib/cart/types.ts`: CartItem (productId, variantId, quantity — NO prezzo, viene dal DB), Cart (items + signature HMAC), CartWithPrices (items con name/price/total + subtotal/tax/shipping/total)
-- [ ] `lib/cart/cart.ts`: getCart() leggi cookie+verifica HMAC+parse, setCart(cart) firma HMAC+scrivi cookie httpOnly, addToCart(productId, variantId, quantity), updateQuantity(productId, variantId, quantity) se 0 rimuovi, removeFromCart(), clearCart(), calculateTotals(cart) legge OGNI prezzo dal DB+calcola subtotal+tax da settings+shipping. HMAC con SHA-256 e HMAC_SECRET da env
-- [ ] `lib/cart/actions.ts` con `"use server"`: addToCartAction, updateCartAction, removeFromCartAction, clearCartAction
-- [ ] `__tests__/cart/cart.test.ts`: add/remove/update/clear, HMAC cookie manipolato→cart vuoto, calculateTotals con mock prezzi DB, anti-tampering prezzo cambiato→usa nuovo
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/cart/types.ts`: CartItem (productId, variantId, quantity — NO prezzo, viene dal DB), Cart (items + signature HMAC), CartWithPrices (items con name/price/total + subtotal/tax/shipping/total)
+- [x] `lib/cart/cart.ts`: getCart() leggi cookie+verifica HMAC+parse, setCart(cart) firma HMAC+scrivi cookie httpOnly, addToCart(productId, variantId, quantity), updateQuantity(productId, variantId, quantity) se 0 rimuovi, removeFromCart(), clearCart(), calculateTotals(cart) legge OGNI prezzo dal DB+calcola subtotal+tax da settings+shipping. HMAC con SHA-256 e HMAC_SECRET da env
+- [x] `lib/cart/actions.ts` con `"use server"`: addToCartAction, updateCartAction, removeFromCartAction, clearCartAction
+- [x] `__tests__/cart/cart.test.ts`: add/remove/update/clear, HMAC cookie manipolato→cart vuoto, calculateTotals con mock prezzi DB, anti-tampering prezzo cambiato→usa nuovo
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.11 — Auth helpers + actions
 - [ ] `lib/auth/helpers.ts`: getCurrentUser()→{id,email,role}|null, requireAuth()→redirect se non autenticato, requireAdmin()→redirect se non admin, isAdmin(userId)→boolean
