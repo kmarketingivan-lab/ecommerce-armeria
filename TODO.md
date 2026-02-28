@@ -72,11 +72,11 @@
 - [x] **Verifica**: `npx tsc --noEmit` — zero errori
 
 ### Task 0.3 — Dipendenze
-- [ ] Runtime: `zod`, `isomorphic-dompurify`, `date-fns`, `slugify`, `nanoid`
-- [ ] Dev: `vitest`, `@testing-library/react`, `@testing-library/jest-dom`
-- [ ] `vitest.config.ts` con path aliases che matchano tsconfig
-- [ ] Scripts npm: `"test": "vitest"`, `"test:run": "vitest run"`, `"test:coverage": "vitest run --coverage"`
-- [ ] **Verifica**: `npm run test:run` — esegue, 0 test, 0 errori
+- [x] Runtime: `zod`, `isomorphic-dompurify`, `date-fns`, `slugify`, `nanoid`
+- [x] Dev: `vitest`, `@testing-library/react`, `@testing-library/jest-dom`
+- [x] `vitest.config.ts` con path aliases che matchano tsconfig
+- [x] Scripts npm: `"test": "vitest"`, `"test:run": "vitest run"`, `"test:coverage": "vitest run --coverage"`
+- [x] **Verifica**: `npm run test:run` — esegue, 0 test, 0 errori
 
 ### Task 0.4 — Utilities condivise
 - [ ] `lib/utils/logger.ts`: Logger strutturato — NO console.log nel codebase. Metodi: info, error, warn
