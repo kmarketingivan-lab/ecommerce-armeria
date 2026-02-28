@@ -63,13 +63,13 @@
 - [x] `.gitignore` include `.env.local`
 - [x] **Verifica**: `npx tsc --noEmit && npx next lint` — zero errori
 ### Task 0.2 — Supabase clients
-- [ ] `npm install @supabase/supabase-js @supabase/ssr`
-- [ ] `lib/supabase/client.ts`: Browser client con ANON key, RLS attiva, tipizzato con Database
-- [ ] `lib/supabase/server.ts`: Server client che legge cookies, RLS attiva, tipizzato
-- [ ] `lib/supabase/admin.ts`: Service role client — BYPASSA RLS — SOLO server-side, MAI esposto. Commento ⚠️ in testa al file
-- [ ] `lib/supabase/middleware.ts`: helper per refresh session nel middleware
-- [ ] `types/database.ts`: tipo Database placeholder (verrà popolato con le tabelle)
-- [ ] **Verifica**: `npx tsc --noEmit` — zero errori
+- [x] `npm install @supabase/supabase-js @supabase/ssr`
+- [x] `lib/supabase/client.ts`: Browser client con ANON key, RLS attiva, tipizzato con Database
+- [x] `lib/supabase/server.ts`: Server client che legge cookies, RLS attiva, tipizzato
+- [x] `lib/supabase/admin.ts`: Service role client — BYPASSA RLS — SOLO server-side, MAI esposto. Commento ⚠️ in testa al file
+- [x] `lib/supabase/middleware.ts`: helper per refresh session nel middleware
+- [x] `types/database.ts`: tipo Database placeholder (verrà popolato con le tabelle)
+- [x] **Verifica**: `npx tsc --noEmit` — zero errori
 
 ### Task 0.3 — Dipendenze
 - [ ] Runtime: `zod`, `isomorphic-dompurify`, `date-fns`, `slugify`, `nanoid`
