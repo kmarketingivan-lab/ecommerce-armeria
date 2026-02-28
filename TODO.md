@@ -56,12 +56,12 @@
 ## FASE 0 — Setup Progetto
 
 ### Task 0.1 — Init Next.js + TypeScript strict
-- [ ] `npx create-next-app@latest --typescript --tailwind --eslint --app --src-dir=false`
-- [ ] `tsconfig.json`: `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`
-- [ ] ESLint: `@typescript-eslint/no-explicit-any: error`, `@typescript-eslint/no-unused-vars: error`
-- [ ] `.env.local.example` con: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, HMAC_SECRET
-- [ ] `.gitignore` include `.env.local`
-- [ ] **Verifica**: `npx tsc --noEmit && npx next lint` — zero errori
+- [x] `npx create-next-app@latest --typescript --tailwind --eslint --app --src-dir=false`
+- [x] `tsconfig.json`: `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`
+- [x] ESLint: `@typescript-eslint/no-explicit-any: error`, `@typescript-eslint/no-unused-vars: error`
+- [x] `.env.local.example` con: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, HMAC_SECRET
+- [x] `.gitignore` include `.env.local`
+- [x] **Verifica**: `npx tsc --noEmit && npx next lint` — zero errori
 ### Task 0.2 — Supabase clients
 - [ ] `npm install @supabase/supabase-js @supabase/ssr`
 - [ ] `lib/supabase/client.ts`: Browser client con ANON key, RLS attiva, tipizzato con Database
