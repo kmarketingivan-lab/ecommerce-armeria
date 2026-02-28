@@ -260,11 +260,11 @@
 - [x] **Verifica**: file esiste con almeno 5 known issues (8 documented)
 
 ### Task 2.14 — Build finale fase 2
-- [ ] `npx tsc --noEmit` — ZERO errori
-- [ ] `npx next lint` — ZERO errori
-- [ ] `npm run build` — ZERO errori
-- [ ] `npm run test:run` — ZERO fallimenti, almeno 40 test
-- [ ] **Verifica**: tutti e 4 i comandi passano
+- [x] `npx tsc --noEmit` — ZERO errori
+- [x] `npx eslint app/ lib/` — ZERO errori (next lint removed in Next.js 16)
+- [x] `npm run build` — ZERO errori
+- [x] `npm run test:run` — ZERO fallimenti, 157 test (18 test files)
+- [x] **Verifica**: tutti e 4 i comandi passano
 
 ---
 

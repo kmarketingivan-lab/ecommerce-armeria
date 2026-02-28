@@ -191,7 +191,7 @@ export async function calculateTotals(
     .map((i) => i.variantId)
     .filter((v): v is string => v !== null);
 
-  let variantMap: Record<string, { price_adjustment: number; name: string }> = {};
+  const variantMap: Record<string, { price_adjustment: number; name: string }> = {};
   if (variantIds.length > 0) {
     const { data: variants } = await supabase
       .from("product_variants")
