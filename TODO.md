@@ -74,12 +74,12 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.2 — Products CRUD
-- [ ] `app/(admin)/admin/products/page.tsx`: Lista prodotti con DataTable — colonne: immagine thumbnail, nome, SKU, prezzo, stock, status badge, azioni (edit, toggle active, delete). Paginazione server-side. Filtro per categoria, ricerca per nome/SKU
-- [ ] `app/(admin)/admin/products/new/page.tsx`: Form creazione prodotto. Tutti i campi dal Zod schema. Rich text editor per rich_description. Media picker per immagini. Slug auto-generato da nome (editabile). Preview prezzo formattato EUR
-- [ ] `app/(admin)/admin/products/[id]/edit/page.tsx`: Form modifica. Precarica dati dal DAL. Stessi campi del create. Sezione gestione immagini con drag-and-drop reorder (o almeno frecce su/giù)
-- [ ] `app/(admin)/admin/products/[id]/page.tsx`: Dettaglio prodotto read-only con tutte le info, storico ordini che includono questo prodotto
-- [ ] Tutti i form usano le server actions di Fase 1. Toast su success/error
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/products/page.tsx`: Lista prodotti con DataTable — colonne: immagine thumbnail, nome, SKU, prezzo, stock, status badge, azioni (edit, toggle active, delete). Paginazione server-side. Filtro per categoria, ricerca per nome/SKU
+- [x] `app/(admin)/admin/products/new/page.tsx`: Form creazione prodotto. Tutti i campi dal Zod schema. Rich text editor per rich_description. Media picker per immagini. Slug auto-generato da nome (editabile). Preview prezzo formattato EUR
+- [x] `app/(admin)/admin/products/[id]/edit/page.tsx`: Form modifica. Precarica dati dal DAL. Stessi campi del create. Sezione gestione immagini con drag-and-drop reorder (o almeno frecce su/giù)
+- [x] `app/(admin)/admin/products/[id]/page.tsx`: Dettaglio prodotto read-only con tutte le info, storico ordini che includono questo prodotto
+- [x] Tutti i form usano le server actions di Fase 1. Toast su success/error
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.3 — Categories CRUD
 - [ ] `app/(admin)/admin/categories/page.tsx`: Lista categorie con tree view (parent → children). Azioni: edit, delete, toggle active
