@@ -93,14 +93,14 @@
 - [x] **Verifica**: `npx tsc --noEmit` — zero errori
 
 ### Task 0.6 — Layout shells (placeholder vuoti)
-- [ ] `app/layout.tsx` — root layout con html lang="it"
-- [ ] `app/error.tsx` — error boundary globale
-- [ ] `app/not-found.tsx` — 404 page
-- [ ] `app/(storefront)/layout.tsx` — shell vuota con `{children}`
-- [ ] `app/(admin)/layout.tsx` — shell vuota con `{children}`
-- [ ] `app/(admin)/admin/login/page.tsx` — placeholder
-- [ ] `app/(storefront)/page.tsx` — placeholder
-- [ ] **Verifica**: `npm run build` — zero errori
+- [x] `app/layout.tsx` — root layout con html lang="it"
+- [x] `app/error.tsx` — error boundary globale
+- [x] `app/not-found.tsx` — 404 page
+- [x] `app/(storefront)/layout.tsx` — shell vuota con `{children}`
+- [x] `app/(admin)/layout.tsx` — shell vuota con `{children}`
+- [x] `app/(admin)/admin/login/page.tsx` — placeholder
+- [x] `app/(storefront)/page.tsx` — placeholder
+- [x] **Verifica**: `npm run build` — zero errori
 ---
 
 ## FASE 1 — Database Schema + RLS + Zod + Types
