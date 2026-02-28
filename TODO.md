@@ -54,10 +54,10 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 3.5 — Rich Text Editor
-- [ ] Installa `@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-image`, `@tiptap/extension-link`
-- [ ] `components/ui/rich-text-editor.tsx`: Editor WYSIWYG con toolbar (bold, italic, headings h2-h4, link, image, lists, blockquote, code). Output HTML. Props: value, onChange, placeholder. Sanitizza output con DOMPurify prima di salvare
-- [ ] `components/ui/rich-text-display.tsx`: Componente per renderizzare HTML sanitizzato (per blog posts, pagine, descrizioni prodotto)
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] Installa `@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-image`, `@tiptap/extension-link`
+- [x] `components/ui/rich-text-editor.tsx`: Editor WYSIWYG con toolbar (bold, italic, headings h2-h4, link, image, lists, blockquote, code). Output HTML. Props: value, onChange, placeholder. Sanitizza output con DOMPurify prima di salvare
+- [x] `components/ui/rich-text-display.tsx`: Componente per renderizzare HTML sanitizzato (per blog posts, pagine, descrizioni prodotto)
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 3.6 — Media Picker
 - [ ] `components/ui/media-picker.tsx`: Modal per selezionare media dalla libreria. Griglia di thumbnail, ricerca per nome, filtro per folder, upload diretto. Ritorna URL del media selezionato. Props: onSelect(url), accept (image/*, application/pdf)
