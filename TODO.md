@@ -127,54 +127,54 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.4 — product_images
-- [ ] Migration `supabase/migrations/0004_product_images.sql`: tabella (id, product_id FK CASCADE, url, alt_text, sort_order, is_primary, created_at). Indice su product_id. RLS: SELECT pubblico, INSERT/UPDATE/DELETE admin
-- [ ] Zod schema, types, test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0004_product_images.sql`: tabella (id, product_id FK CASCADE, url, alt_text, sort_order, is_primary, created_at). Indice su product_id. RLS: SELECT pubblico, INSERT/UPDATE/DELETE admin
+- [x] Zod schema, types, test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.5 — product_variants
-- [ ] Migration `supabase/migrations/0005_product_variants.sql`: tabella (id, product_id FK CASCADE, name, sku UNIQUE, price_adjustment NUMERIC DEFAULT 0, stock_quantity CHECK>=0, attributes JSONB DEFAULT '{}', is_active, created_at). Indice product_id. RLS: SELECT pubblico (prodotto attivo), resto admin
-- [ ] Zod schema con validazione JSONB attributes (record di string)
-- [ ] Types, test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0005_product_variants.sql`: tabella (id, product_id FK CASCADE, name, sku UNIQUE, price_adjustment NUMERIC DEFAULT 0, stock_quantity CHECK>=0, attributes JSONB DEFAULT '{}', is_active, created_at). Indice product_id. RLS: SELECT pubblico (prodotto attivo), resto admin
+- [x] Zod schema con validazione JSONB attributes (record di string)
+- [x] Types, test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.6 — orders + order_items
-- [ ] Migration `supabase/migrations/0006_orders.sql`: tabella orders (id, order_number UNIQUE, user_id FK nullable, email, status CHECK IN pending/confirmed/processing/shipped/delivered/cancelled/refunded, subtotal/tax/shipping/discount/total NUMERIC CHECK>=0, shipping_address JSONB, billing_address JSONB, notes, stripe_payment_intent_id, timestamps). Tabella order_items (id, order_id FK CASCADE, product_id FK SET NULL, variant_id FK SET NULL, product_name, variant_name, quantity CHECK>0, unit_price CHECK>=0, total_price CHECK>=0, created_at). Indici: orders(user_id, status, order_number), order_items(order_id). RLS: users vedono solo propri ordini, admin vede tutti. Funzione SQL generate_order_number() formato ORD-YYYY-NNNNNN
-- [ ] `lib/validators/orders.ts`: Zod per ordine, items, address JSONB (street, city, zip, country required)
-- [ ] Test: status invalido, quantity 0, address incompleto
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0006_orders.sql`: tabella orders (id, order_number UNIQUE, user_id FK nullable, email, status CHECK IN pending/confirmed/processing/shipped/delivered/cancelled/refunded, subtotal/tax/shipping/discount/total NUMERIC CHECK>=0, shipping_address JSONB, billing_address JSONB, notes, stripe_payment_intent_id, timestamps). Tabella order_items (id, order_id FK CASCADE, product_id FK SET NULL, variant_id FK SET NULL, product_name, variant_name, quantity CHECK>0, unit_price CHECK>=0, total_price CHECK>=0, created_at). Indici: orders(user_id, status, order_number), order_items(order_id). RLS: users vedono solo propri ordini, admin vede tutti. Funzione SQL generate_order_number() formato ORD-YYYY-NNNNNN
+- [x] `lib/validators/orders.ts`: Zod per ordine, items, address JSONB (street, city, zip, country required)
+- [x] Test: status invalido, quantity 0, address incompleto
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 ### Task 1.7 — pages
-- [ ] Migration `supabase/migrations/0007_pages.sql`: tabella (id, title, slug UNIQUE, content, rich_content, seo_title, seo_description, is_published, published_at, timestamps). Indice slug. RLS: SELECT pubblico (is_published=true), resto admin
-- [ ] Zod, types, test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0007_pages.sql`: tabella (id, title, slug UNIQUE, content, rich_content, seo_title, seo_description, is_published, published_at, timestamps). Indice slug. RLS: SELECT pubblico (is_published=true), resto admin
+- [x] Zod, types, test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.8 — blog_posts
-- [ ] Migration `supabase/migrations/0008_blog_posts.sql`: tabella (id, title, slug UNIQUE, excerpt, content, rich_content, cover_image_url, author_id FK SET NULL, is_published, published_at, seo_title, seo_description, tags TEXT[], timestamps). Indici: slug, (is_published+published_at DESC), tags GIN. RLS: SELECT pubblico (is_published=true), resto admin
-- [ ] Zod — tags array di stringhe, slug regex
-- [ ] Types, test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0008_blog_posts.sql`: tabella (id, title, slug UNIQUE, excerpt, content, rich_content, cover_image_url, author_id FK SET NULL, is_published, published_at, seo_title, seo_description, tags TEXT[], timestamps). Indici: slug, (is_published+published_at DESC), tags GIN. RLS: SELECT pubblico (is_published=true), resto admin
+- [x] Zod — tags array di stringhe, slug regex
+- [x] Types, test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.9 — bookings (services + availability + bookings)
-- [ ] Migration `supabase/migrations/0009_bookings.sql`: tabella booking_services (id, name, description, duration_minutes CHECK>0, price CHECK>=0, is_active, sort_order, created_at). Tabella booking_availability (id, day_of_week CHECK 0-6, start_time TIME, end_time TIME, is_active, CHECK end>start). Tabella bookings (id, user_id FK nullable, service_id FK RESTRICT, customer_name, customer_email, customer_phone, booking_date DATE, start_time TIME, end_time TIME, status CHECK IN pending/confirmed/cancelled/completed/no_show, notes, timestamps, CHECK end>start). Indici: bookings(booking_date+start_time, user_id, status). RLS: servizi/disponibilità SELECT pubblico, bookings SELECT proprio utente+admin, INSERT pubblico, UPDATE/DELETE admin. Funzione SQL check_booking_conflict(p_date, p_start, p_end) ritorna boolean
-- [ ] Zod schemas per tutti e tre
-- [ ] Test Zod
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0009_bookings.sql`: tabella booking_services (id, name, description, duration_minutes CHECK>0, price CHECK>=0, is_active, sort_order, created_at). Tabella booking_availability (id, day_of_week CHECK 0-6, start_time TIME, end_time TIME, is_active, CHECK end>start). Tabella bookings (id, user_id FK nullable, service_id FK RESTRICT, customer_name, customer_email, customer_phone, booking_date DATE, start_time TIME, end_time TIME, status CHECK IN pending/confirmed/cancelled/completed/no_show, notes, timestamps, CHECK end>start). Indici: bookings(booking_date+start_time, user_id, status). RLS: servizi/disponibilità SELECT pubblico, bookings SELECT proprio utente+admin, INSERT pubblico, UPDATE/DELETE admin. Funzione SQL check_booking_conflict(p_date, p_start, p_end) ritorna boolean
+- [x] Zod schemas per tutti e tre
+- [x] Test Zod
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.10 — site_settings
-- [ ] Migration `supabase/migrations/0010_site_settings.sql`: tabella (key TEXT PK, value JSONB, updated_at). RLS: SELECT pubblico, UPDATE/INSERT admin, DELETE nessuno. Seed: site_name, site_description, contact_email, contact_phone, address, social_links, business_hours, currency (EUR), tax_rate (22)
-- [ ] Zod schemas per ogni tipo di setting
-- [ ] Types, test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0010_site_settings.sql`: tabella (key TEXT PK, value JSONB, updated_at). RLS: SELECT pubblico, UPDATE/INSERT admin, DELETE nessuno. Seed: site_name, site_description, contact_email, contact_phone, address, social_links, business_hours, currency (EUR), tax_rate (22)
+- [x] Zod schemas per ogni tipo di setting
+- [x] Types, test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.11 — media
-- [ ] Migration `supabase/migrations/0011_media.sql`: tabella (id, filename, original_filename, mime_type, size_bytes, url, alt_text, folder DEFAULT 'general', uploaded_by FK SET NULL, created_at). Indice folder. RLS: SELECT pubblico, INSERT/DELETE admin
-- [ ] Zod con whitelist MIME: image/jpeg, image/png, image/webp, image/svg+xml, application/pdf. Max 5MB immagini, 20MB PDF
-- [ ] Types, test (includi MIME invalido, size over limit)
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] Migration `supabase/migrations/0011_media.sql`: tabella (id, filename, original_filename, mime_type, size_bytes, url, alt_text, folder DEFAULT 'general', uploaded_by FK SET NULL, created_at). Indice folder. RLS: SELECT pubblico, INSERT/DELETE admin
+- [x] Zod con whitelist MIME: image/jpeg, image/png, image/webp, image/svg+xml, application/pdf. Max 5MB immagini, 20MB PDF
+- [x] Types, test (includi MIME invalido, size over limit)
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 1.12 — audit_log
-- [ ] Migration `supabase/migrations/0012_audit_log.sql`: tabella (id, user_id FK SET NULL, action, entity_type, entity_id, old_values JSONB, new_values JSONB, ip_address, user_agent, created_at). Indici: user_id, (entity_type+entity_id), created_at DESC. RLS: SELECT solo admin, INSERT solo via service role, NO UPDATE, NO DELETE
-- [ ] Types (no Zod — non riceve input utente)
-- [ ] **Verifica**: `npx tsc --noEmit`
+- [x] Migration `supabase/migrations/0012_audit_log.sql`: tabella (id, user_id FK SET NULL, action, entity_type, entity_id, old_values JSONB, new_values JSONB, ip_address, user_agent, created_at). Indici: user_id, (entity_type+entity_id), created_at DESC. RLS: SELECT solo admin, INSERT solo via service role, NO UPDATE, NO DELETE
+- [x] Types (no Zod — non riceve input utente)
+- [x] **Verifica**: `npx tsc --noEmit`
 
 ### Task 1.13 — Types Database completo
 - [ ] Aggiorna `types/database.ts` con TUTTE le tabelle: tipo Database con public.Tables per ogni tabella (Row, Insert, Update). Esporta tipi: Product, Category, Order, OrderItem, BlogPost, Page, Booking, BookingService, Media, Profile, SiteSetting, AuditLog
