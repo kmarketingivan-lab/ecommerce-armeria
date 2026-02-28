@@ -31,7 +31,7 @@ function createFluentMock(resolveValue: Record<string, unknown> = {}) {
   mock.limit = vi.fn(() => {
     const p = resolve();
     // Also make .eq chainable after .limit
-    (p as Record<string, unknown>).eq = vi.fn(() => resolve());
+    (p as unknown as Record<string, unknown>).eq = vi.fn(() => resolve());
     return p;
   });
   mock.single = vi.fn(() => resolve());

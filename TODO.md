@@ -189,54 +189,54 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.2 — Server Actions Products (Admin)
-- [ ] `app/(admin)/admin/products/actions.ts` con `"use server"`: createProduct(formData) con requireAdmin+Zod+slug generation+audit log+revalidatePath, updateProduct(id, formData) con diff audit, deleteProduct(id) soft delete, toggleProductActive(id), updateProductStock(id, quantity), reorderProductImages(productId, imageIds[])
-- [ ] OGNI action: requireAdmin(), Zod PRIMO step, try/catch, audit log, return {success} o {error: string}
-- [ ] `__tests__/actions/products.test.ts`: mock auth+supabase, testa happy path + validation error + auth error
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `app/(admin)/admin/products/actions.ts` con `"use server"`: createProduct(formData) con requireAdmin+Zod+slug generation+audit log+revalidatePath, updateProduct(id, formData) con diff audit, deleteProduct(id) soft delete, toggleProductActive(id), updateProductStock(id, quantity), reorderProductImages(productId, imageIds[])
+- [x] OGNI action: requireAdmin(), Zod PRIMO step, try/catch, audit log, return {success} o {error: string}
+- [x] `__tests__/actions/products.test.ts`: mock auth+supabase, testa happy path + validation error + auth error
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.3 — DAL + Actions Categories
-- [ ] `lib/dal/categories.ts`: getCategories(), getCategoryBySlug(), getCategoryTree() (parent/children)
-- [ ] `app/(admin)/admin/categories/actions.ts`: createCategory(), updateCategory(), deleteCategory(), reorderCategories(ids[])
-- [ ] Test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/categories.ts`: getCategories(), getCategoryBySlug(), getCategoryTree() (parent/children)
+- [x] `app/(admin)/admin/categories/actions.ts`: createCategory(), updateCategory(), deleteCategory(), reorderCategories(ids[])
+- [x] Test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.4 — DAL + Actions Orders
-- [ ] `lib/dal/orders.ts`: getOrders(filters), getOrderById(), getOrdersByUser(userId), getOrderStats() (count per status)
-- [ ] `app/(admin)/admin/orders/actions.ts`: updateOrderStatus(id, newStatus), cancelOrder(id), addOrderNote(id, note)
-- [ ] Validazione transizioni: pending→confirmed/cancelled, confirmed→processing/cancelled, processing→shipped/cancelled, shipped→delivered, delivered→refunded. Nessuna altra transizione permessa
-- [ ] Test: transizioni valide passano, invalide (delivered→pending) falliscono
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/orders.ts`: getOrders(filters), getOrderById(), getOrdersByUser(userId), getOrderStats() (count per status)
+- [x] `app/(admin)/admin/orders/actions.ts`: updateOrderStatus(id, newStatus), cancelOrder(id), addOrderNote(id, note)
+- [x] Validazione transizioni: pending→confirmed/cancelled, confirmed→processing/cancelled, processing→shipped/cancelled, shipped→delivered, delivered→refunded. Nessuna altra transizione permessa
+- [x] Test: transizioni valide passano, invalide (delivered→pending) falliscono
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.5 — DAL + Actions Pages
-- [ ] `lib/dal/pages.ts`: getPages(), getPageBySlug(), getPublishedPages()
-- [ ] Actions: createPage(), updatePage(), deletePage(), togglePublished(). Sanitizzazione rich_content con DOMPurify
-- [ ] Test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/pages.ts`: getPages(), getPageBySlug(), getPublishedPages()
+- [x] Actions: createPage(), updatePage(), deletePage(), togglePublished(). Sanitizzazione rich_content con DOMPurify
+- [x] Test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.6 — DAL + Actions Blog
-- [ ] `lib/dal/blog.ts`: getPosts(filters), getPostBySlug(), getPublishedPosts({page, perPage}), getPostsByTag(tag)
-- [ ] Actions: createPost(), updatePost(), deletePost(), togglePublished(). Sanitizzazione rich_content, auto-excerpt (primi 160 chars)
-- [ ] Test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/blog.ts`: getPosts(filters), getPostBySlug(), getPublishedPosts({page, perPage}), getPostsByTag(tag)
+- [x] Actions: createPost(), updatePost(), deletePost(), togglePublished(). Sanitizzazione rich_content, auto-excerpt (primi 160 chars)
+- [x] Test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.7 — DAL + Actions Bookings
-- [ ] `lib/dal/bookings.ts`: getBookings(filters), getBookingById(id), getAvailableSlots(date, serviceId) che calcola slot liberi basandosi su durata servizio e bookings esistenti, getBookingServices()
-- [ ] Actions admin: confirmBooking(id), cancelBooking(id), completeBooking(id), markNoShow(id), updateAvailability(data), createService(), updateService(), deleteService()
-- [ ] Action pubblica: createBooking(formData) con Zod + verifica slot libero + insert (documentare race condition in KNOWN_ISSUES.md)
-- [ ] `__tests__/dal/bookings.test.ts`: test calcolo slot — nessun conflitto, conflitto parziale, giorno pieno, slot al confine
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/bookings.ts`: getBookings(filters), getBookingById(id), getAvailableSlots(date, serviceId) che calcola slot liberi basandosi su durata servizio e bookings esistenti, getBookingServices()
+- [x] Actions admin: confirmBooking(id), cancelBooking(id), completeBooking(id), markNoShow(id), updateAvailability(data), createService(), updateService(), deleteService()
+- [x] Action pubblica: createBooking(formData) con Zod + verifica slot libero + insert (documentare race condition in KNOWN_ISSUES.md)
+- [x] `__tests__/dal/bookings.test.ts`: test calcolo slot — nessun conflitto, conflitto parziale, giorno pieno, slot al confine
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.8 — DAL + Actions Media
-- [ ] `lib/dal/media.ts`: getMedia(folder?), getMediaById(id)
-- [ ] Actions: uploadMedia(formData) con validazione MIME server-side + size + filename sicuro con nanoid + upload Storage + insert DB + audit log. deleteMedia(id) elimina da Storage+DB+audit. updateMediaAlt(id, altText)
-- [ ] Test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/media.ts`: getMedia(folder?), getMediaById(id)
+- [x] Actions: uploadMedia(formData) con validazione MIME server-side + size + filename sicuro con nanoid + upload Storage + insert DB + audit log. deleteMedia(id) elimina da Storage+DB+audit. updateMediaAlt(id, altText)
+- [x] Test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 
 ### Task 2.9 — DAL + Actions Site Settings
-- [ ] `lib/dal/settings.ts`: getSettings(), getSetting(key), getPublicSettings()
-- [ ] Actions: updateSetting(key, value), updateSettings(settings). Cache con unstable_cache + tag site-settings, revalidateTag su update
-- [ ] Test
-- [ ] **Verifica**: `npx tsc --noEmit && npm run test:run`
+- [x] `lib/dal/settings.ts`: getSettings(), getSetting(key), getPublicSettings()
+- [x] Actions: updateSetting(key, value), updateSettings(settings). Cache con unstable_cache + tag site-settings, revalidateTag su update
+- [x] Test
+- [x] **Verifica**: `npx tsc --noEmit && npm run test:run`
 ### Task 2.10 — Cart logic
 - [ ] `lib/cart/types.ts`: CartItem (productId, variantId, quantity — NO prezzo, viene dal DB), Cart (items + signature HMAC), CartWithPrices (items con name/price/total + subtotal/tax/shipping/total)
 - [ ] `lib/cart/cart.ts`: getCart() leggi cookie+verifica HMAC+parse, setCart(cart) firma HMAC+scrivi cookie httpOnly, addToCart(productId, variantId, quantity), updateQuantity(productId, variantId, quantity) se 0 rimuovi, removeFromCart(), clearCart(), calculateTotals(cart) legge OGNI prezzo dal DB+calcola subtotal+tax da settings+shipping. HMAC con SHA-256 e HMAC_SECRET da env
