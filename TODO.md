@@ -82,42 +82,42 @@
 - [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.3 — Categories CRUD
-- [ ] `app/(admin)/admin/categories/page.tsx`: Lista categorie con tree view (parent → children). Azioni: edit, delete, toggle active
-- [ ] `app/(admin)/admin/categories/new/page.tsx`: Form creazione — nome, slug, descrizione, parent_id select, immagine, sort_order
-- [ ] `app/(admin)/admin/categories/[id]/edit/page.tsx`: Form modifica
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/categories/page.tsx`: Lista categorie con tree view (parent → children). Azioni: edit, delete, toggle active
+- [x] `app/(admin)/admin/categories/new/page.tsx`: Form creazione — nome, slug, descrizione, parent_id select, immagine, sort_order
+- [x] `app/(admin)/admin/categories/[id]/edit/page.tsx`: Form modifica
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.4 — Orders management
-- [ ] `app/(admin)/admin/orders/page.tsx`: Lista ordini con DataTable — order_number, cliente email, totale, status badge, data, azioni. Filtro per status. Ordinamento per data
-- [ ] `app/(admin)/admin/orders/[id]/page.tsx`: Dettaglio ordine — info cliente, indirizzo spedizione/fatturazione, items con prezzo, totali, storico status. Azioni: cambia status (dropdown con solo transizioni valide), aggiungi nota
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/orders/page.tsx`: Lista ordini con DataTable — order_number, cliente email, totale, status badge, data, azioni. Filtro per status. Ordinamento per data
+- [x] `app/(admin)/admin/orders/[id]/page.tsx`: Dettaglio ordine — info cliente, indirizzo spedizione/fatturazione, items con prezzo, totali, storico status. Azioni: cambia status (dropdown con solo transizioni valide), aggiungi nota
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.5 — Bookings management
-- [ ] `app/(admin)/admin/bookings/page.tsx`: Lista prenotazioni con DataTable — data, ora, servizio, cliente, status badge, azioni
-- [ ] `app/(admin)/admin/bookings/[id]/page.tsx`: Dettaglio prenotazione con azioni (conferma, cancella, completa, no-show)
-- [ ] `app/(admin)/admin/bookings/services/page.tsx`: CRUD servizi prenotabili (nome, durata, prezzo, attivo)
-- [ ] `app/(admin)/admin/bookings/availability/page.tsx`: Gestione disponibilità settimanale — per ogni giorno della settimana: attivo/inattivo, orario inizio/fine
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/bookings/page.tsx`: Lista prenotazioni con DataTable — data, ora, servizio, cliente, status badge, azioni
+- [x] `app/(admin)/admin/bookings/[id]/page.tsx`: Dettaglio prenotazione con azioni (conferma, cancella, completa, no-show)
+- [x] `app/(admin)/admin/bookings/services/page.tsx`: CRUD servizi prenotabili (nome, durata, prezzo, attivo)
+- [x] `app/(admin)/admin/bookings/availability/page.tsx`: Gestione disponibilità settimanale — per ogni giorno della settimana: attivo/inattivo, orario inizio/fine
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.6 — Blog CRUD
-- [ ] `app/(admin)/admin/blog/page.tsx`: Lista post con DataTable — titolo, autore, status (published/draft), data pubblicazione, azioni
-- [ ] `app/(admin)/admin/blog/new/page.tsx`: Form creazione — titolo, slug auto, excerpt, rich_content con editor, cover image con media picker, tags (input con chip/tag), SEO fields, publish toggle
-- [ ] `app/(admin)/admin/blog/[id]/edit/page.tsx`: Form modifica
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/blog/page.tsx`: Lista post con DataTable — titolo, autore, status (published/draft), data pubblicazione, azioni
+- [x] `app/(admin)/admin/blog/new/page.tsx`: Form creazione — titolo, slug auto, excerpt, rich_content con editor, cover image con media picker, tags (input con chip/tag), SEO fields, publish toggle
+- [x] `app/(admin)/admin/blog/[id]/edit/page.tsx`: Form modifica
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.7 — Pages CRUD
-- [ ] `app/(admin)/admin/pages/page.tsx`: Lista pagine statiche
-- [ ] `app/(admin)/admin/pages/new/page.tsx`: Form creazione — titolo, slug, rich_content con editor, SEO fields, publish toggle
-- [ ] `app/(admin)/admin/pages/[id]/edit/page.tsx`: Form modifica
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/pages/page.tsx`: Lista pagine statiche
+- [x] `app/(admin)/admin/pages/new/page.tsx`: Form creazione — titolo, slug, rich_content con editor, SEO fields, publish toggle
+- [x] `app/(admin)/admin/pages/[id]/edit/page.tsx`: Form modifica
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.8 — Media library
-- [ ] `app/(admin)/admin/media/page.tsx`: Griglia media con thumbnail, nome, dimensione, data upload. Filtro per folder. Upload multiplo con drag-and-drop zone. Delete con confirm dialog. Click per copiare URL
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/media/page.tsx`: Griglia media con thumbnail, nome, dimensione, data upload. Filtro per folder. Upload multiplo con drag-and-drop zone. Delete con confirm dialog. Click per copiare URL
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task 4.9 — Site Settings
-- [ ] `app/(admin)/admin/settings/page.tsx`: Form con sezioni: Generale (nome sito, descrizione, email, telefono, indirizzo), Social (link social), Business (orari, valuta, aliquota IVA). Salva con server action, toast feedback
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(admin)/admin/settings/page.tsx`: Form con sezioni: Generale (nome sito, descrizione, email, telefono, indirizzo), Social (link social), Business (orari, valuta, aliquota IVA). Salva con server action, toast feedback
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 ---
 
 ## FASE 5 — Storefront (pagine pubbliche)
