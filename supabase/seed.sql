@@ -10,7 +10,7 @@ INSERT INTO site_settings (key, value) VALUES
   ('site_description', '"La miglior armeria di Brescia. Vendita armi, munizioni, fuochi artificiali e accessori."'),
   ('contact_email', '"info@palmetto.it"'),
   ('contact_phone', '"030 370 0800"'),
-  ('address', '{"street": "Via Guglielmo Oberdan, 70", "city": "Brescia", "zip": "25128", "province": "BS"}'),
+  ('address', '{"street": "Via Guglielmo Oberdan, 70", "city": "Brescia", "zip": "25128", "province": "BS", "country": "Italia"}'),
   ('social_links', '{"facebook": "https://facebook.com/armeriapalmetto", "instagram": "https://instagram.com/armeriapalmetto"}'),
   ('business_hours', '{"mon": "9:00-12:30, 15:00-19:00", "tue": "9:00-12:30, 15:00-19:00", "wed": "9:00-12:30, 15:00-19:00", "thu": "9:00-12:30, 15:00-19:00", "fri": "9:00-12:30, 15:00-19:00", "sat": "9:00-12:30", "sun": "Chiuso"}'),
   ('currency', '"EUR"'),
@@ -33,123 +33,142 @@ INSERT INTO categories (id, name, slug, description, image_url, parent_id, sort_
   ('a0000000-0000-0000-0000-000000000011', 'Fondine e Custodie', 'fondine-custodie', 'Fondine tattiche, da cintura, custodie imbottite', 'https://placehold.co/400x300/d4a017/1a1a1a?text=Fondine', 'a0000000-0000-0000-0000-000000000009', 2, true),
   ('a0000000-0000-0000-0000-000000000012', 'Pulizia e Manutenzione', 'pulizia-manutenzione', 'Kit pulizia, oli, solventi, bacchette', 'https://placehold.co/400x300/d4a017/1a1a1a?text=Pulizia', 'a0000000-0000-0000-0000-000000000009', 3, true);
 -- ============================================
--- PRODUCTS
+-- PRODUCTS (no sort_order column, stock_quantity not stock)
 -- ============================================
+
+-- Pistole
 INSERT INTO products (id, name, slug, description, rich_description, price, compare_at_price, sku, stock_quantity, category_id, is_active, is_featured) VALUES
-  ('b0000000-0000-0000-0000-000000000001', 'Beretta 92FS', 'beretta-92fs', 'Pistola semiautomatica calibro 9x21mm.', '<p>La <strong>Beretta 92FS</strong> è una delle pistole più iconiche al mondo. Calibro 9x21mm, canna da 125mm, caricatore da 15 colpi.</p>', 850.00, NULL, 'BER-92FS-9', 12, 'a0000000-0000-0000-0000-000000000002', true, true),
-  ('b0000000-0000-0000-0000-000000000002', 'Glock 17 Gen5', 'glock-17-gen5', 'Pistola semiautomatica calibro 9x21mm.', '<p>La <strong>Glock 17 Gen5</strong> rappresenta l''evoluzione della pistola più diffusa al mondo. Calibro 9x21mm, caricatore da 17 colpi.</p>', 720.00, NULL, 'GLK-17G5-9', 8, 'a0000000-0000-0000-0000-000000000002', true, true),
-  ('b0000000-0000-0000-0000-000000000003', 'Sig Sauer P226', 'sig-sauer-p226', 'Pistola semiautomatica calibro 9x21mm.', '<p>La <strong>Sig Sauer P226</strong> è la scelta dei professionisti. Fusto in lega leggera, carrello in acciaio, grilletto DA/SA.</p>', 1150.00, 1250.00, 'SIG-P226-9', 5, 'a0000000-0000-0000-0000-000000000002', true, true),
-  ('b0000000-0000-0000-0000-000000000004', 'CZ 75 Shadow 2', 'cz-75-shadow-2', 'Pistola da competizione calibro 9x21mm.', '<p>La <strong>CZ 75 Shadow 2</strong> è progettata per la competizione. Peso bilanciato, grilletto SA perfezionato, 19 colpi.</p>', 1380.00, NULL, 'CZ-SH2-9', 4, 'a0000000-0000-0000-0000-000000000002', true, false),
-  ('b0000000-0000-0000-0000-000000000005', 'Smith & Wesson 686', 'sw-686', 'Revolver calibro .357 Magnum. 6 colpi, acciaio inox.', '<p>Il <strong>S&W 686</strong> è il revolver per eccellenza. Calibro .357 Magnum, acciaio inossidabile, grilletto liscio.</p>', 980.00, NULL, 'SW-686-357', 6, 'a0000000-0000-0000-0000-000000000002', true, false),
-  ('b0000000-0000-0000-0000-000000000006', 'Benelli Raffaello', 'benelli-raffaello', 'Fucile semiautomatico calibro 12.', '<p>Il <strong>Benelli Raffaello</strong> è il fucile da caccia per eccellenza. Sistema Inertia Driven, calibro 12, calcio in noce.</p>', 1650.00, NULL, 'BEN-RAFF-12', 7, 'a0000000-0000-0000-0000-000000000003', true, true),
-  ('b0000000-0000-0000-0000-000000000007', 'Beretta 694 Sporting', 'beretta-694-sporting', 'Sovrapposto calibro 12 per tiro sportivo.', '<p>La <strong>Beretta 694 Sporting</strong> è un sovrapposto di alta gamma. Bascula in acciaio, canne Steelium.</p>', 3200.00, 3500.00, 'BER-694-12', 3, 'a0000000-0000-0000-0000-000000000003', true, true),
-  ('b0000000-0000-0000-0000-000000000008', 'Franchi Affinity 3', 'franchi-affinity-3', 'Fucile semiautomatico calibro 12.', '<p>Il <strong>Franchi Affinity 3</strong> pesa solo 2.9 kg. Sistema Inertia Driven, calibro 12, canna da 71cm.</p>', 1100.00, NULL, 'FRA-AFF3-12', 9, 'a0000000-0000-0000-0000-000000000003', true, false),
-  ('b0000000-0000-0000-0000-000000000009', 'CZ 457 Varmint', 'cz-457-varmint', 'Carabina bolt action calibro .22 LR.', '<p>La <strong>CZ 457 Varmint</strong> è ideale per il tiro di precisione. Calibro .22 LR, canna heavy barrel, grilletto regolabile.</p>', 680.00, NULL, 'CZ-457V-22', 10, 'a0000000-0000-0000-0000-000000000004', true, false),
-  ('b0000000-0000-0000-0000-000000000010', 'Tikka T3x Lite', 'tikka-t3x-lite', 'Carabina bolt action calibro .308 Win.', '<p>La <strong>Tikka T3x Lite</strong> è una bolt action finlandese. Calibro .308 Win, canna da 57cm, peso 2.9 kg.</p>', 1050.00, NULL, 'TIK-T3XL-308', 6, 'a0000000-0000-0000-0000-000000000004', true, true),
-  ('b0000000-0000-0000-0000-000000000011', 'Federal 9mm 124gr FMJ (x50)', 'federal-9mm-124gr-fmj', 'Munizioni 9mm Luger 124 grani FMJ. Conf. 50.', '<p>Munizioni <strong>Federal American Eagle</strong> 9mm Luger, 124 grani FMJ. Confezione da 50.</p>', 18.50, NULL, 'FED-9MM-124-50', 200, 'a0000000-0000-0000-0000-000000000006', true, false),
-  ('b0000000-0000-0000-0000-000000000012', 'Fiocchi 9mm 115gr FMJ (x50)', 'fiocchi-9mm-115gr-fmj', 'Munizioni 9mm Luger 115 grani FMJ italiane. Conf. 50.', '<p>Munizioni <strong>Fiocchi</strong> 9mm Luger, 115 grani FMJ. Prodotte in Italia. Confezione da 50.</p>', 15.00, NULL, 'FIO-9MM-115-50', 500, 'a0000000-0000-0000-0000-000000000006', true, true),
-  ('b0000000-0000-0000-0000-000000000013', 'Sellier & Bellot .45 ACP 230gr FMJ (x50)', 'sb-45acp-230gr-fmj', 'Munizioni .45 ACP 230 grani FMJ. Conf. 50.', '<p>Munizioni <strong>Sellier & Bellot</strong> .45 ACP, 230 grani FMJ. Confezione da 50.</p>', 28.00, NULL, 'SB-45-230-50', 150, 'a0000000-0000-0000-0000-000000000006', true, false),
-  ('b0000000-0000-0000-0000-000000000014', 'Fiocchi 12ga Trap 24gr (x25)', 'fiocchi-12ga-trap-24gr', 'Cartucce calibro 12, 24g piombo 7.5. Conf. 25.', '<p>Cartucce <strong>Fiocchi</strong> calibro 12, 24g piombo n.7.5. Ideali per Trap e Skeet. Confezione da 25.</p>', 9.50, NULL, 'FIO-12T-24-25', 800, 'a0000000-0000-0000-0000-000000000007', true, false),
-  ('b0000000-0000-0000-0000-000000000015', 'Federal .308 Win 150gr SP (x20)', 'federal-308-150gr-sp', 'Munizioni .308 Win 150gr Soft Point. Conf. 20.', '<p>Munizioni <strong>Federal Power-Shok</strong> .308 Win, 150 grani Soft Point. Confezione da 20.</p>', 32.00, NULL, 'FED-308-150-20', 100, 'a0000000-0000-0000-0000-000000000007', true, false),
-  ('b0000000-0000-0000-0000-000000000016', 'CCI .22 LR Standard Velocity (x50)', 'cci-22lr-sv-50', 'Munizioni .22 LR 40gr, subsoniche. Conf. 50.', '<p>Munizioni <strong>CCI Standard Velocity</strong> .22 LR, 40 grani, subsoniche. Confezione da 50.</p>', 7.50, NULL, 'CCI-22LR-SV-50', 1000, 'a0000000-0000-0000-0000-000000000007', true, false),
-  ('b0000000-0000-0000-0000-000000000017', '500 Bangs', '500-bangs', 'Batteria 500 colpi multicolor.', '<p><strong>500 Bangs</strong> — batteria pirotecnica da 500 colpi multicolore. Durata circa 3 minuti.</p>', 10.00, NULL, 'FUO-500B', 50, 'a0000000-0000-0000-0000-000000000008', true, true),
-  ('b0000000-0000-0000-0000-000000000018', 'Adrenaline', 'adrenaline', 'Batteria professionale 25 colpi 30mm.', '<p><strong>Adrenaline</strong> — batteria pirotecnica professionale, 25 colpi calibro 30mm ad alta quota.</p>', 20.00, NULL, 'FUO-ADREN', 35, 'a0000000-0000-0000-0000-000000000008', true, true),
-  ('b0000000-0000-0000-0000-000000000019', 'Battaglia dell''Assietta', 'battaglia-assietta', 'Batteria top di gamma 100 colpi.', '<p><strong>Battaglia dell''Assietta</strong> — 100 colpi calibro 25-30mm, finale a ventaglio. Durata 5 minuti.</p>', 70.00, 85.00, 'FUO-BASS', 20, 'a0000000-0000-0000-0000-000000000008', true, true),
-  ('b0000000-0000-0000-0000-000000000020', 'Vortex Crossfire II 3-9x40', 'vortex-crossfire-3-9x40', 'Cannocchiale 3-9x40mm, reticolo V-Plex.', '<p>Il <strong>Vortex Crossfire II 3-9x40</strong> offre lenti multi-coated, reticolo V-Plex, tubo da 1 pollice.</p>', 220.00, NULL, 'VOR-CF2-3940', 15, 'a0000000-0000-0000-0000-000000000010', true, false),
-  ('b0000000-0000-0000-0000-000000000021', 'Fondina Safariland GLS Pro-Fit', 'safariland-gls-profit', 'Fondina tattica con ritenzione automatica GLS.', '<p>La <strong>Safariland GLS Pro-Fit</strong> offre ritenzione automatica. Compatibile con Glock, Beretta, Sig Sauer.</p>', 75.00, NULL, 'SAF-GLS-PF', 20, 'a0000000-0000-0000-0000-000000000011', true, false),
-  ('b0000000-0000-0000-0000-000000000022', 'Kit Pulizia Hoppe''s No.9', 'hoppes-kit-pulizia', 'Kit pulizia completo per armi corte e lunghe.', '<p>Il <strong>Kit Hoppe''s No.9</strong> contiene solvente, olio, bacchette, spazzole e pezzuole. Per calibri da .22 a 12ga.</p>', 45.00, NULL, 'HOP-KIT-UNI', 30, 'a0000000-0000-0000-0000-000000000012', true, false);
+  ('b0000000-0000-0000-0000-000000000001', 'Beretta 92FS', 'beretta-92fs', 'Pistola semiautomatica calibro 9x21mm. Icona di affidabilità.', '<p>La <strong>Beretta 92FS</strong> è una delle pistole più iconiche al mondo. Calibro 9x21mm, canna da 125mm, caricatore da 15 colpi.</p>', 850.00, NULL, 'PIS-BER-92FS', 5, 'a0000000-0000-0000-0000-000000000002', true, true),
+  ('b0000000-0000-0000-0000-000000000002', 'Glock 17 Gen5', 'glock-17-gen5', 'Pistola semiautomatica calibro 9x21mm. Lo standard mondiale.', '<p>La <strong>Glock 17 Gen5</strong> rappresenta l''evoluzione della pistola più diffusa al mondo. Caricatore da 17 colpi.</p>', 720.00, NULL, 'PIS-GLK-17G5', 8, 'a0000000-0000-0000-0000-000000000002', true, true),
+  ('b0000000-0000-0000-0000-000000000003', 'Sig Sauer P226', 'sig-sauer-p226', 'Pistola semiautomatica calibro 9x21mm. Precisione militare.', '<p>La <strong>Sig Sauer P226</strong> è la scelta delle forze speciali. Fusto in lega, carrello in acciaio.</p>', 1150.00, 1250.00, 'PIS-SIG-P226', 3, 'a0000000-0000-0000-0000-000000000002', true, true),
+  ('b0000000-0000-0000-0000-000000000004', 'CZ 75 SP-01 Shadow', 'cz-75-sp01-shadow', 'Pistola da competizione calibro 9x21mm per tiro sportivo.', '<p>La <strong>CZ 75 SP-01 Shadow</strong> è la pistola preferita dai tiratori IPSC.</p>', 980.00, NULL, 'PIS-CZ-SP01S', 4, 'a0000000-0000-0000-0000-000000000002', true, false),
+  ('b0000000-0000-0000-0000-000000000005', 'Smith & Wesson M&P9 2.0', 'sw-mp9-20', 'Pistola striker-fired calibro 9x21mm. Ergonomia e affidabilità.', '<p>La <strong>S&W M&P9 2.0</strong> offre 4 dorsalini intercambiabili e texture aggressiva.</p>', 680.00, 750.00, 'PIS-SW-MP9', 6, 'a0000000-0000-0000-0000-000000000002', true, false),
+-- Fucili
+  ('b0000000-0000-0000-0000-000000000006', 'Benelli Raffaello Crio', 'benelli-raffaello-crio', 'Fucile semiautomatico calibro 12. Il re della caccia italiana.', '<p>Il <strong>Benelli Raffaello Crio</strong> con sistema Inertia Driven e canne Crio System.</p>', 1450.00, NULL, 'FUC-BEN-RAFF', 3, 'a0000000-0000-0000-0000-000000000003', true, true),
+  ('b0000000-0000-0000-0000-000000000007', 'Beretta 686 Silver Pigeon I', 'beretta-686-silver-pigeon', 'Sovrapposto calibro 12. Eleganza e prestazioni.', '<p>Il <strong>Beretta 686 Silver Pigeon I</strong> è il sovrapposto più venduto al mondo.</p>', 2200.00, NULL, 'FUC-BER-686SP', 2, 'a0000000-0000-0000-0000-000000000003', true, true),
+  ('b0000000-0000-0000-0000-000000000008', 'Franchi Affinity 3', 'franchi-affinity-3', 'Semiautomatico calibro 12. Versatile e leggero.', '<p>Il <strong>Franchi Affinity 3</strong> con sistema Inertia Driven, peso sotto i 3kg.</p>', 980.00, 1100.00, 'FUC-FRA-AFF3', 5, 'a0000000-0000-0000-0000-000000000003', true, false),
+-- Carabine
+  ('b0000000-0000-0000-0000-000000000009', 'CZ 457 Varmint', 'cz-457-varmint', 'Carabina bolt action calibro .22 LR. Precisione chirurgica.', '<p>La <strong>CZ 457 Varmint</strong> con canna pesante da 525mm e grilletto regolabile.</p>', 750.00, NULL, 'CAR-CZ-457V', 4, 'a0000000-0000-0000-0000-000000000004', true, false),
+  ('b0000000-0000-0000-0000-000000000010', 'Tikka T3x Lite', 'tikka-t3x-lite', 'Carabina bolt action calibro .308 Win. Precisione finlandese.', '<p>La <strong>Tikka T3x Lite</strong> pesa solo 2.9kg. Garanzia precisione sub-MOA.</p>', 1350.00, NULL, 'CAR-TIK-T3XL', 3, 'a0000000-0000-0000-0000-000000000004', true, true),
+-- Munizioni Pistola
+  ('b0000000-0000-0000-0000-000000000011', 'Federal 9mm Luger 124gr FMJ (50pz)', 'federal-9mm-124gr-fmj', 'Munizioni 9mm Luger 124 grani FMJ. Confezione da 50.', '<p>Munizioni <strong>Federal American Eagle</strong> 9mm Luger 124gr FMJ.</p>', 18.50, NULL, 'MUN-FED-9MM124', 200, 'a0000000-0000-0000-0000-000000000006', true, false),
+  ('b0000000-0000-0000-0000-000000000012', 'Fiocchi 9x21 IMI 123gr FMJ (50pz)', 'fiocchi-9x21-123gr-fmj', 'Munizioni 9x21 IMI 123 grani FMJ. Produzione italiana.', '<p>Munizioni <strong>Fiocchi</strong> 9x21 IMI prodotte in Italia.</p>', 16.00, NULL, 'MUN-FIO-9X21', 300, 'a0000000-0000-0000-0000-000000000006', true, false),
+  ('b0000000-0000-0000-0000-000000000013', 'Sellier & Bellot .45 ACP 230gr FMJ (50pz)', 'sb-45acp-230gr-fmj', 'Munizioni .45 ACP 230 grani FMJ. Confezione da 50.', '<p>Munizioni <strong>S&B</strong> .45 ACP di qualità ceca.</p>', 28.00, 32.00, 'MUN-SB-45ACP', 150, 'a0000000-0000-0000-0000-000000000006', true, false),
+-- Munizioni Fucile
+  ('b0000000-0000-0000-0000-000000000014', 'Fiocchi 12/70 Trap 24gr (25pz)', 'fiocchi-12-70-trap-24gr', 'Cartucce calibro 12 da trap. Piombo n.7.5.', '<p>Cartucce <strong>Fiocchi</strong> calibro 12/70 per tiro a volo.</p>', 8.50, NULL, 'MUN-FIO-12TRAP', 500, 'a0000000-0000-0000-0000-000000000007', true, false),
+  ('b0000000-0000-0000-0000-000000000015', 'Hornady .308 Win 168gr BTHP Match (20pz)', 'hornady-308-168gr-bthp', 'Munizioni .308 Win 168gr Match. Precisione estrema.', '<p>Munizioni <strong>Hornady Match</strong> .308 Win con palla BTHP da 168gr.</p>', 42.00, NULL, 'MUN-HOR-308M', 80, 'a0000000-0000-0000-0000-000000000007', true, false),
+-- Fuochi Artificiali
+  ('b0000000-0000-0000-0000-000000000016', '500 Bangs', '500-bangs', 'Batteria di 500 colpi con lampi colorati.', '<p><strong>500 Bangs</strong> — batteria da 500 scoppi con effetti multicolore.</p>', 10.00, NULL, 'FUO-500BANGS', 50, 'a0000000-0000-0000-0000-000000000008', true, true),
+  ('b0000000-0000-0000-0000-000000000017', 'Adrenaline', 'adrenaline', 'Batteria pirotecnica con effetti multicolore.', '<p><strong>Adrenaline</strong> — sequenza di colpi colorati, crescendo finale.</p>', 20.00, NULL, 'FUO-ADRENAL', 40, 'a0000000-0000-0000-0000-000000000008', true, true),
+  ('b0000000-0000-0000-0000-000000000018', 'Battaglia dell''Assietta', 'battaglia-assietta', 'Batteria professionale con 100 lanci.', '<p><strong>Battaglia dell''Assietta</strong> — 100 lanci ad alto impatto.</p>', 70.00, 85.00, 'FUO-BATASS', 20, 'a0000000-0000-0000-0000-000000000008', true, true),
+  ('b0000000-0000-0000-0000-000000000019', 'Fontana Sparkle Gold', 'fontana-sparkle-gold', 'Fontana pirotecnica dorata. Altezza 3m, durata 45sec.', '<p><strong>Fontana Sparkle Gold</strong> — scintille dorate per eventi eleganti.</p>', 15.00, NULL, 'FUO-FONTGOLD', 60, 'a0000000-0000-0000-0000-000000000008', true, false),
+-- Accessori - Ottiche
+  ('b0000000-0000-0000-0000-000000000020', 'Vortex Crossfire II 3-9x40', 'vortex-crossfire-ii-3-9x40', 'Cannocchiale 3-9x40mm. Reticolo V-Plex.', '<p>Il <strong>Vortex Crossfire II</strong> con lenti multistrato e garanzia VIP a vita.</p>', 220.00, NULL, 'ACC-VTX-CF2', 10, 'a0000000-0000-0000-0000-000000000010', true, false),
+  ('b0000000-0000-0000-0000-000000000021', 'Holosun HS510C Red Dot', 'holosun-hs510c', 'Red dot 65 MOA + 2 MOA. Solare + batteria.', '<p>L''<strong>Holosun HS510C</strong> con tecnologia solare e shake awake.</p>', 350.00, 380.00, 'ACC-HOL-510C', 7, 'a0000000-0000-0000-0000-000000000010', true, true),
+-- Accessori - Fondine
+  ('b0000000-0000-0000-0000-000000000022', 'Safariland 6354DO ALS per Glock', 'safariland-6354do-glock', 'Fondina tattica ALS per Glock 17/22. Compatibile red dot.', '<p>La <strong>Safariland 6354DO</strong> con ritenzione ALS.</p>', 180.00, NULL, 'ACC-SAF-6354', 8, 'a0000000-0000-0000-0000-000000000011', true, false),
+  ('b0000000-0000-0000-0000-000000000023', 'Blackhawk Serpa CQC Beretta 92', 'blackhawk-serpa-beretta', 'Fondina da cintura con ritenzione a pulsante.', '<p>La <strong>Blackhawk Serpa CQC</strong> con Auto Lock.</p>', 55.00, NULL, 'ACC-BHK-SERPA', 12, 'a0000000-0000-0000-0000-000000000011', true, false),
+-- Accessori - Pulizia
+  ('b0000000-0000-0000-0000-000000000024', 'Kit Pulizia Universale Hoppe''s No.9', 'hoppes-kit-pulizia', 'Kit completo pulizia armi. Tutti i calibri.', '<p>Il <strong>Kit Hoppe''s No.9</strong> con bacchette, spazzole, solvente e olio.</p>', 45.00, 55.00, 'ACC-HOP-KIT', 20, 'a0000000-0000-0000-0000-000000000012', true, false),
+  ('b0000000-0000-0000-0000-000000000025', 'Olio Ballistol Universale 200ml', 'ballistol-olio-200ml', 'Olio universale per armi. Spray 200ml.', '<p>L''<strong>Olio Ballistol</strong> — il classico tedesco dal 1904.</p>', 12.00, NULL, 'ACC-BAL-200', 40, 'a0000000-0000-0000-0000-000000000012', true, false);
 -- ============================================
--- PRODUCT IMAGES
+-- PRODUCT IMAGES (alt_text not alt)
 -- ============================================
 INSERT INTO product_images (id, product_id, url, alt_text, sort_order, is_primary) VALUES
   ('c0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Beretta+92FS', 'Beretta 92FS', 1, true),
-  ('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000002', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Glock+17+Gen5', 'Glock 17 Gen5', 1, true),
-  ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000003', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Sig+Sauer+P226', 'Sig Sauer P226', 1, true),
-  ('c0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000004', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+75+Shadow+2', 'CZ 75 Shadow 2', 1, true),
-  ('c0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000005', 'https://placehold.co/600x600/1a1a1a/ffffff?text=SW+686', 'Smith Wesson 686', 1, true),
-  ('c0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000006', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Benelli+Raffaello', 'Benelli Raffaello', 1, true),
-  ('c0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000007', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Beretta+694', 'Beretta 694 Sporting', 1, true),
-  ('c0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000008', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Franchi+Affinity+3', 'Franchi Affinity 3', 1, true),
-  ('c0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000009', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+457+Varmint', 'CZ 457 Varmint', 1, true),
-  ('c0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000010', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Tikka+T3x+Lite', 'Tikka T3x Lite', 1, true),
-  ('c0000000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000011', 'https://placehold.co/600x600/d4a017/1a1a1a?text=Federal+9mm', 'Federal 9mm FMJ', 1, true),
-  ('c0000000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000012', 'https://placehold.co/600x600/d4a017/1a1a1a?text=Fiocchi+9mm', 'Fiocchi 9mm FMJ', 1, true),
-  ('c0000000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000013', 'https://placehold.co/600x600/d4a017/1a1a1a?text=SB+45+ACP', 'Sellier Bellot 45 ACP', 1, true),
-  ('c0000000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000014', 'https://placehold.co/600x600/d4a017/1a1a1a?text=Fiocchi+12ga', 'Fiocchi 12 Gauge', 1, true),
-  ('c0000000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000015', 'https://placehold.co/600x600/d4a017/1a1a1a?text=Federal+308', 'Federal 308 Win', 1, true),
-  ('c0000000-0000-0000-0000-000000000016', 'b0000000-0000-0000-0000-000000000016', 'https://placehold.co/600x600/d4a017/1a1a1a?text=CCI+22+LR', 'CCI 22 LR', 1, true),
-  ('c0000000-0000-0000-0000-000000000017', 'b0000000-0000-0000-0000-000000000017', 'https://placehold.co/600x600/c62828/ffffff?text=500+Bangs', '500 Bangs', 1, true),
-  ('c0000000-0000-0000-0000-000000000018', 'b0000000-0000-0000-0000-000000000018', 'https://placehold.co/600x600/c62828/ffffff?text=Adrenaline', 'Adrenaline', 1, true),
-  ('c0000000-0000-0000-0000-000000000019', 'b0000000-0000-0000-0000-000000000019', 'https://placehold.co/600x600/c62828/ffffff?text=Battaglia+Assietta', 'Battaglia Assietta', 1, true),
-  ('c0000000-0000-0000-0000-000000000020', 'b0000000-0000-0000-0000-000000000020', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Vortex+3-9x40', 'Vortex Crossfire II', 1, true),
-  ('c0000000-0000-0000-0000-000000000021', 'b0000000-0000-0000-0000-000000000021', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Safariland+GLS', 'Safariland GLS', 1, true),
-  ('c0000000-0000-0000-0000-000000000022', 'b0000000-0000-0000-0000-000000000022', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Hoppes+Kit', 'Kit Pulizia Hoppes', 1, true);
--- ============================================
--- BLOG POSTS (is_published boolean, rich_content field)
--- ============================================
-INSERT INTO blog_posts (id, title, slug, excerpt, rich_content, cover_image_url, tags, is_published, published_at) VALUES
-  ('d0000000-0000-0000-0000-000000000001', 'Guida alla scelta della prima pistola', 'guida-scelta-prima-pistola',
-    'Tutto quello che devi sapere prima di acquistare la tua prima arma corta.',
-    '<h2>Come scegliere la prima pistola</h2><p>L''acquisto della prima pistola è un momento importante. Analizziamo i fattori chiave: calibro, dimensioni, peso e budget.</p><h3>Calibro</h3><p>Per un principiante il 9x21mm è la scelta migliore: rinculo gestibile e munizioni economiche.</p><h3>Budget</h3><p>Preventivate tra 500 e 1200 euro per una buona pistola nuova.</p>',
-    'https://placehold.co/1200x600/1a1a1a/ffffff?text=Guida+Prima+Pistola',
-    ARRAY['guide', 'pistole', 'principianti'], true, NOW() - INTERVAL '7 days'),
-  ('d0000000-0000-0000-0000-000000000002', 'Manutenzione delle armi: consigli essenziali', 'manutenzione-armi-consigli',
-    'La pulizia regolare è fondamentale per sicurezza e longevità della tua arma.',
-    '<h2>Perché la manutenzione è importante</h2><p>Un''arma ben mantenuta è un''arma sicura. La pulizia regolare previene malfunzionamenti e corrosione.</p><h3>Kit essenziale</h3><p>Solvente, olio lubrificante, bacchette, spazzole in bronzo e pezzuole.</p>',
-    'https://placehold.co/1200x600/d4a017/1a1a1a?text=Manutenzione+Armi',
-    ARRAY['manutenzione', 'pulizia', 'consigli'], true, NOW() - INTERVAL '3 days'),
-  ('d0000000-0000-0000-0000-000000000003', 'Fuochi artificiali: normativa e sicurezza', 'fuochi-artificiali-normativa',
-    'Normative italiane per acquisto e utilizzo di fuochi artificiali.',
-    '<h2>Normativa italiana</h2><p>I fuochi artificiali sono classificati in categorie F1-F4. F1 e F2 sono acquistabili dai maggiorenni senza licenza.</p><h3>Sicurezza</h3><p>Mantenere la distanza di sicurezza indicata. Non accendere mai fuochi in luoghi chiusi.</p>',
-    'https://placehold.co/1200x600/c62828/ffffff?text=Fuochi+Artificiali',
-    ARRAY['fuochi artificiali', 'normativa', 'sicurezza'], true, NOW() - INTERVAL '1 day'),
-  ('d0000000-0000-0000-0000-000000000004', 'Le novità dal Shot Show 2026', 'novita-shot-show-2026',
-    'Le armi più interessanti presentate al Shot Show di Las Vegas.',
-    '<h2>Shot Show 2026</h2><p>Articolo in arrivo... Restate sintonizzati!</p>',
-    'https://placehold.co/1200x600/1a1a1a/ffffff?text=Shot+Show+2026',
-    ARRAY['novità', 'fiere'], false, NULL);
+  ('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'https://placehold.co/600x600/333333/ffffff?text=Beretta+92FS+Lato', 'Beretta 92FS vista laterale', 2, false),
+  ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000002', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Glock+17+Gen5', 'Glock 17 Gen5', 1, true),
+  ('c0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000003', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Sig+Sauer+P226', 'Sig Sauer P226', 1, true),
+  ('c0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000004', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+75+SP-01', 'CZ 75 SP-01 Shadow', 1, true),
+  ('c0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000005', 'https://placehold.co/600x600/1a1a1a/ffffff?text=S%26W+M%26P9', 'Smith Wesson MP9', 1, true),
+  ('c0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000006', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Benelli+Raffaello', 'Benelli Raffaello Crio', 1, true),
+  ('c0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000007', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Beretta+686+SP', 'Beretta 686 Silver Pigeon', 1, true),
+  ('c0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000008', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Franchi+Affinity', 'Franchi Affinity 3', 1, true),
+  ('c0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000009', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+457+Varmint', 'CZ 457 Varmint', 1, true),
+  ('c0000000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000010', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Tikka+T3x+Lite', 'Tikka T3x Lite', 1, true),
+  ('c0000000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000016', 'https://placehold.co/600x600/c62828/ffffff?text=500+Bangs', '500 Bangs', 1, true),
+  ('c0000000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000017', 'https://placehold.co/600x600/c62828/ffffff?text=Adrenaline', 'Adrenaline', 1, true),
+  ('c0000000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000018', 'https://placehold.co/600x600/c62828/ffffff?text=Battaglia+Assietta', 'Battaglia Assietta', 1, true),
+  ('c0000000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000021', 'https://placehold.co/600x600/333333/ffffff?text=Holosun+HS510C', 'Holosun HS510C', 1, true);
 
 -- ============================================
--- PAGES (is_published boolean, no sort_order)
+-- PRODUCT VARIANTS (price_adjustment, stock_quantity, attributes JSONB)
 -- ============================================
-INSERT INTO pages (id, title, slug, rich_content, is_published, published_at) VALUES
-  ('e0000000-0000-0000-0000-000000000001', 'Chi Siamo', 'chi-siamo',
-    '<h2>La Nostra Storia</h2><p>Armeria Palmetto è un pilastro della comunità di Brescia da decenni. Offriamo armi e munizioni delle migliori marche.</p><h2>I Nostri Servizi</h2><p>Vendita armi, assistenza post-vendita, riparazioni, consulenza, taratura armi e fuochi artificiali.</p>',
-    true, NOW()),
-  ('e0000000-0000-0000-0000-000000000002', 'Contatti', 'contatti',
-    '<h2>Contattaci</h2><p>Via Guglielmo Oberdan, 70 — 25128 Brescia (BS)</p><p>Tel: 030 370 0800</p><p>Email: info@palmetto.it</p><h3>Orari</h3><p>Lun-Ven: 9:00-12:30, 15:00-19:00 | Sab: 9:00-12:30 | Dom: Chiuso</p>',
-    true, NOW()),
-  ('e0000000-0000-0000-0000-000000000003', 'Privacy Policy', 'privacy-policy',
-    '<h2>Informativa sulla Privacy</h2><p>Ai sensi del Regolamento UE 2016/679 (GDPR). Contenuto completo da inserire.</p>',
-    true, NOW()),
-  ('e0000000-0000-0000-0000-000000000004', 'Termini e Condizioni', 'terms',
-    '<h2>Termini e Condizioni di Vendita</h2><p>Condizioni generali di vendita di Armeria Palmetto. Contenuto completo da inserire.</p>',
-    true, NOW()),
-  ('e0000000-0000-0000-0000-000000000005', 'Cookie Policy', 'cookie-policy',
-    '<h2>Cookie Policy</h2><p>Questo sito utilizza cookie tecnici e, previo consenso, cookie di profilazione. Contenuto completo da inserire.</p>',
-    true, NOW());
+INSERT INTO product_variants (id, product_id, name, sku, price_adjustment, stock_quantity, attributes, is_active) VALUES
+  ('d0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'Brunita', 'PIS-BER-92FS-BRU', 0.00, 3, '{"finitura": "brunita"}', true),
+  ('d0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'INOX', 'PIS-BER-92FS-INX', 100.00, 2, '{"finitura": "inox"}', true),
+  ('d0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000006', 'Canna 71cm', 'FUC-BEN-RAFF-71', 0.00, 2, '{"canna": "71cm"}', true),
+  ('d0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000006', 'Canna 76cm', 'FUC-BEN-RAFF-76', 0.00, 1, '{"canna": "76cm"}', true),
+  ('d0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000010', '.308 Winchester', 'CAR-TIK-T3XL-308', 0.00, 2, '{"calibro": ".308 Win"}', true),
+  ('d0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000010', '.30-06 Springfield', 'CAR-TIK-T3XL-3006', 0.00, 1, '{"calibro": ".30-06 Sprg"}', true);
+-- ============================================
+-- BLOG POSTS (is_published BOOL, tags TEXT[])
+-- ============================================
+INSERT INTO blog_posts (id, title, slug, excerpt, content, cover_image_url, tags, is_published, published_at) VALUES
+  ('e0000000-0000-0000-0000-000000000001', 'Come scegliere la tua prima pistola', 'come-scegliere-prima-pistola',
+   'Guida completa per chi si avvicina al mondo delle armi sportive.',
+   '<h2>Introduzione</h2><p>Scegliere la prima pistola è un passo importante. In questa guida vi accompagniamo nella scelta.</p><h2>Calibri consigliati</h2><p>Il <strong>9x21mm</strong> è il calibro più versatile: rinculo gestibile, munizioni economiche, ampia scelta di modelli.</p><h2>Il nostro consiglio</h2><p>Venite a trovarci in negozio. Il nostro staff vi guiderà nella scelta.</p>',
+   'https://placehold.co/1200x600/1a1a1a/ffffff?text=Guida+Prima+Pistola',
+   ARRAY['guida', 'pistole', 'principianti'], true, NOW() - INTERVAL '5 days'),
+
+  ('e0000000-0000-0000-0000-000000000002', 'Manutenzione armi: i 5 errori da evitare', 'manutenzione-armi-5-errori',
+   'Scopri gli errori più comuni nella pulizia delle armi da fuoco.',
+   '<h2>La manutenzione è fondamentale</h2><p>Un''arma ben mantenuta è sicura e affidabile.</p><h2>Errore 1: Non pulire dopo ogni utilizzo</h2><p>I residui di polvere da sparo sono corrosivi.</p><h2>Errore 2: Troppo olio</h2><p>L''eccesso di olio attira polvere.</p><h2>Errore 3: Ignorare punti nascosti</h2><p>Percussore ed estrattore vanno puliti.</p><h2>Errore 4: Prodotti non specifici</h2><p>Usate solo solventi e oli per armi.</p><h2>Errore 5: Non controllare molle</h2><p>Sostituitele periodicamente.</p>',
+   'https://placehold.co/1200x600/c62828/ffffff?text=Manutenzione+Armi',
+   ARRAY['manutenzione', 'pulizia', 'consigli'], true, NOW() - INTERVAL '12 days'),
+
+  ('e0000000-0000-0000-0000-000000000003', 'Calendario spettacoli pirotecnici estate 2026', 'calendario-spettacoli-estate-2026',
+   'Tutti gli spettacoli pirotecnici Armeria Palmetto per l''estate 2026.',
+   '<h2>Estate di fuoco!</h2><p>Organizziamo spettacoli pirotecnici per feste patronali, matrimoni e eventi in tutta la provincia di Brescia.</p><h2>Come prenotare</h2><p>Contattateci o prenotate un appuntamento dal sito per un preventivo personalizzato.</p>',
+   'https://placehold.co/1200x600/d4a017/1a1a1a?text=Spettacoli+2026',
+   ARRAY['fuochi artificiali', 'eventi', 'estate'], true, NOW() - INTERVAL '2 days'),
+
+  ('e0000000-0000-0000-0000-000000000004', 'Novità Beretta 2026: la nuova linea sportiva', 'novita-beretta-2026',
+   'Anteprima dei nuovi modelli Beretta presentati all''IWA 2026.',
+   '<h2>IWA 2026</h2><p>Beretta ha presentato la nuova linea di pistole sportive e fucili da competizione aggiornati.</p><h2>Prossimamente</h2><p>Prenotate la vostra copia contattandoci. Consegne da giugno 2026.</p>',
+   'https://placehold.co/1200x600/333333/ffffff?text=Novit%C3%A0+Beretta+2026',
+   ARRAY['beretta', 'novità', '2026'], false, NULL);
+
+-- ============================================
+-- PAGES (is_published BOOL, published_at)
+-- ============================================
+INSERT INTO pages (id, title, slug, content, is_published, published_at) VALUES
+  ('f0000000-0000-0000-0000-000000000001', 'Chi Siamo', 'chi-siamo',
+   '<h2>La Nostra Storia</h2><p>Armeria Palmetto è un pilastro della comunità di Brescia da decenni.</p><p>Offriamo una vasta gamma di armi e munizioni delle migliori marche, garantendo sicurezza e affidabilità.</p><h2>I Nostri Valori</h2><p>Sicurezza, competenza, passione.</p>',
+   true, NOW() - INTERVAL '30 days'),
+
+  ('f0000000-0000-0000-0000-000000000002', 'Contatti', 'contatti',
+   '<h2>Dove Siamo</h2><p><strong>Armeria Palmetto</strong><br/>Via Guglielmo Oberdan, 70<br/>25128 Brescia (BS)</p><h2>Orari</h2><p>Lun-Ven: 9:00-12:30, 15:00-19:00<br/>Sab: 9:00-12:30<br/>Dom: Chiuso</p><h2>Recapiti</h2><p>Tel: 030 370 0800<br/>Email: info@palmetto.it</p>',
+   true, NOW() - INTERVAL '30 days'),
+
+  ('f0000000-0000-0000-0000-000000000003', 'Servizi', 'servizi',
+   '<h2>I Nostri Servizi</h2><h3>Vendita Armi</h3><p>Vasta gamma di armi da fuoco delle migliori marche.</p><h3>Assistenza Post-Vendita</h3><p>Supporto e consulenza dopo l''acquisto.</p><h3>Riparazioni</h3><p>Riparazione e manutenzione professionale.</p><h3>Consulenza</h3><p>Consulenze su misura per scegliere l''arma perfetta.</p><h3>Taratura Armi</h3><p>Servizi di taratura professionali.</p><h3>Vendita Munizioni</h3><p>Ampia selezione per ogni calibro.</p>',
+   true, NOW() - INTERVAL '30 days');
 -- ============================================
 -- BOOKING SERVICES (no slug column)
 -- ============================================
 INSERT INTO booking_services (id, name, description, duration_minutes, price, is_active, sort_order) VALUES
-  ('f0000000-0000-0000-0000-000000000001', 'Consulenza Acquisto Arma', 'Consulenza personalizzata per la scelta dell''arma più adatta alle tue esigenze.', 30, 0.00, true, 1),
-  ('f0000000-0000-0000-0000-000000000002', 'Taratura Ottica', 'Servizio professionale di taratura e azzeramento ottiche su carabine e fucili.', 60, 50.00, true, 2),
-  ('f0000000-0000-0000-0000-000000000003', 'Pulizia e Manutenzione Completa', 'Pulizia completa con smontaggio, sgrassaggio, lubrificazione e controllo parti.', 45, 35.00, true, 3),
-  ('f0000000-0000-0000-0000-000000000004', 'Riparazione Arma', 'Diagnosi e riparazione. Preventivo gratuito, riparazione solo se accettata.', 60, 0.00, true, 4),
-  ('f0000000-0000-0000-0000-000000000005', 'Consulenza Spettacolo Pirotecnico', 'Pianificazione spettacolo pirotecnico per eventi, matrimoni, feste.', 45, 0.00, true, 5);
+  ('a1000000-0000-0000-0000-000000000001', 'Consulenza Acquisto Armi', 'Appuntamento personalizzato per la scelta della tua arma. Il nostro esperto ti guiderà.', 30, 0.00, true, 1),
+  ('a1000000-0000-0000-0000-000000000002', 'Taratura Ottica', 'Servizio professionale di taratura e azzeramento della tua ottica. Incluso test a 100m.', 60, 50.00, true, 2),
+  ('a1000000-0000-0000-0000-000000000003', 'Riparazione e Manutenzione', 'Diagnosi e riparazione della tua arma. Preventivo gratuito.', 45, 30.00, true, 3),
+  ('a1000000-0000-0000-0000-000000000004', 'Consulenza Spettacolo Pirotecnico', 'Pianifica il tuo spettacolo pirotecnico. Matrimoni, feste, eventi aziendali.', 45, 0.00, true, 4);
 
 -- ============================================
 -- BOOKING AVAILABILITY (day_of_week 0=Sun..6=Sat)
+-- Lun=1, Mar=2, Mer=3, Gio=4, Ven=5, Sab=6
 -- ============================================
 INSERT INTO booking_availability (id, day_of_week, start_time, end_time, is_active) VALUES
-  ('aa000000-0000-0000-0000-000000000001', 1, '09:00', '12:30', true),
-  ('aa000000-0000-0000-0000-000000000002', 1, '15:00', '19:00', true),
-  ('aa000000-0000-0000-0000-000000000003', 2, '09:00', '12:30', true),
-  ('aa000000-0000-0000-0000-000000000004', 2, '15:00', '19:00', true),
-  ('aa000000-0000-0000-0000-000000000005', 3, '09:00', '12:30', true),
-  ('aa000000-0000-0000-0000-000000000006', 3, '15:00', '19:00', true),
-  ('aa000000-0000-0000-0000-000000000007', 4, '09:00', '12:30', true),
-  ('aa000000-0000-0000-0000-000000000008', 4, '15:00', '19:00', true),
-  ('aa000000-0000-0000-0000-000000000009', 5, '09:00', '12:30', true),
-  ('aa000000-0000-0000-0000-000000000010', 5, '15:00', '19:00', true),
-  ('aa000000-0000-0000-0000-000000000011', 6, '09:00', '12:30', true);
+  -- Mattina Lun-Ven: 9:00-12:30
+  ('a2000000-0000-0000-0000-000000000001', 1, '09:00', '12:30', true),
+  ('a2000000-0000-0000-0000-000000000002', 2, '09:00', '12:30', true),
+  ('a2000000-0000-0000-0000-000000000003', 3, '09:00', '12:30', true),
+  ('a2000000-0000-0000-0000-000000000004', 4, '09:00', '12:30', true),
+  ('a2000000-0000-0000-0000-000000000005', 5, '09:00', '12:30', true),
+  -- Pomeriggio Lun-Ven: 15:00-19:00
+  ('a2000000-0000-0000-0000-000000000006', 1, '15:00', '19:00', true),
+  ('a2000000-0000-0000-0000-000000000007', 2, '15:00', '19:00', true),
+  ('a2000000-0000-0000-0000-000000000008', 3, '15:00', '19:00', true),
+  ('a2000000-0000-0000-0000-000000000009', 4, '15:00', '19:00', true),
+  ('a2000000-0000-0000-0000-000000000010', 5, '15:00', '19:00', true),
+  -- Sabato mattina: 9:00-12:30
+  ('a2000000-0000-0000-0000-000000000011', 6, '09:00', '12:30', true);
