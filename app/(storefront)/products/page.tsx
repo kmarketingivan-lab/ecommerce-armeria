@@ -55,7 +55,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-gray-900">Catalogo</h1>
+      <h1 className="text-3xl font-bold uppercase text-red-700">Catalogo</h1>
 
       {/* Filters bar */}
       <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -67,7 +67,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             name="search"
             defaultValue={search}
             placeholder="Cerca prodotti..."
-            className="w-full max-w-sm rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full max-w-sm rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-red-700 focus:outline-none focus:ring-1 focus:ring-red-500"
           />
         </form>
 
@@ -76,25 +76,25 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           <span>Ordina:</span>
           <Link
             href={buildUrl({ sort: "created_at", order: "desc", page: "" })}
-            className={`rounded px-2 py-1 ${sortBy === "created_at" ? "bg-blue-100 text-blue-700 font-medium" : "hover:bg-gray-100"}`}
+            className={`rounded px-2 py-1 ${sortBy === "created_at" ? "bg-red-50 text-red-700 font-semibold" : "hover:bg-gray-100"}`}
           >
             Recenti
           </Link>
           <Link
             href={buildUrl({ sort: "price", order: "asc", page: "" })}
-            className={`rounded px-2 py-1 ${sortBy === "price" && sortOrder === "asc" ? "bg-blue-100 text-blue-700 font-medium" : "hover:bg-gray-100"}`}
+            className={`rounded px-2 py-1 ${sortBy === "price" && sortOrder === "asc" ? "bg-red-50 text-red-700 font-semibold" : "hover:bg-gray-100"}`}
           >
             Prezzo &uarr;
           </Link>
           <Link
             href={buildUrl({ sort: "price", order: "desc", page: "" })}
-            className={`rounded px-2 py-1 ${sortBy === "price" && sortOrder === "desc" ? "bg-blue-100 text-blue-700 font-medium" : "hover:bg-gray-100"}`}
+            className={`rounded px-2 py-1 ${sortBy === "price" && sortOrder === "desc" ? "bg-red-50 text-red-700 font-semibold" : "hover:bg-gray-100"}`}
           >
             Prezzo &darr;
           </Link>
           <Link
             href={buildUrl({ sort: "name", order: "asc", page: "" })}
-            className={`rounded px-2 py-1 ${sortBy === "name" ? "bg-blue-100 text-blue-700 font-medium" : "hover:bg-gray-100"}`}
+            className={`rounded px-2 py-1 ${sortBy === "name" ? "bg-red-50 text-red-700 font-semibold" : "hover:bg-gray-100"}`}
           >
             Nome
           </Link>
@@ -106,7 +106,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         <div className="mt-4 flex flex-wrap gap-2">
           <Link
             href={buildUrl({ category: "", page: "" })}
-            className={`rounded-full px-3 py-1 text-sm ${!categorySlug ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+            className={`rounded-full px-3 py-1 text-sm ${!categorySlug ? "bg-red-700 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
           >
             Tutti
           </Link>
@@ -114,7 +114,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             <Link
               key={cat.id}
               href={buildUrl({ category: cat.slug, page: "" })}
-              className={`rounded-full px-3 py-1 text-sm ${categorySlug === cat.slug ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+              className={`rounded-full px-3 py-1 text-sm ${categorySlug === cat.slug ? "bg-red-700 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
             >
               {cat.name}
             </Link>
@@ -139,7 +139,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
       ) : (
         <div className="mt-12 text-center text-gray-500">
           <p className="text-lg">Nessun prodotto trovato</p>
-          <Link href="/products" className="mt-2 inline-block text-sm text-blue-600 hover:underline">
+          <Link href="/products" className="mt-2 inline-block text-sm text-red-600 hover:underline">
             Mostra tutti i prodotti
           </Link>
         </div>
@@ -166,7 +166,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                   {showEllipsis && <span className="px-1 text-gray-400">...</span>}
                   <Link
                     href={buildUrl({ page: String(p) })}
-                    className={`rounded-lg px-3 py-2 text-sm ${p === page ? "bg-blue-600 text-white" : "border border-gray-300 hover:bg-gray-50"}`}
+                    className={`rounded-lg px-3 py-2 text-sm ${p === page ? "bg-red-700 text-white" : "border border-gray-300 hover:bg-gray-50"}`}
                   >
                     {p}
                   </Link>

@@ -24,12 +24,12 @@ function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group block overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-md"
+      className="group block overflow-hidden rounded-lg border border-neutral-200 bg-white transition-shadow hover:shadow-md"
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         {product.is_featured && (
-          <span className="absolute left-2 top-2 z-10 rounded bg-amber-500 px-2 py-0.5 text-xs font-semibold text-white">
+          <span className="absolute left-2 top-2 z-10 rounded bg-yellow-600 px-2 py-0.5 text-xs font-semibold text-white">
             In evidenza
           </span>
         )}
@@ -53,11 +53,11 @@ function ProductCard({ product }: ProductCardProps) {
 
       {/* Info */}
       <div className="p-4">
-        <h3 className="text-sm font-medium text-gray-900 group-hover:text-blue-600 line-clamp-2">
+        <h3 className="text-sm font-medium text-gray-900 group-hover:text-red-600 line-clamp-2">
           {product.name}
         </h3>
         <div className="mt-2 flex items-baseline gap-2">
-          <span className="text-lg font-bold text-gray-900">
+          <span className="text-lg font-bold text-red-700">
             {formatPrice(product.price)}
           </span>
           {hasDiscount && product.compare_at_price !== null && (

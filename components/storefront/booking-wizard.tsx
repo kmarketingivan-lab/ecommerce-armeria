@@ -43,7 +43,7 @@ function BookingWizard({ services }: BookingWizardProps) {
               }}
               className={`rounded-lg border p-4 text-left transition-all ${
                 selectedServiceId === service.id
-                  ? "border-blue-500 bg-blue-50 ring-2 ring-blue-500"
+                  ? "border-red-700 bg-red-50 ring-2 ring-red-700"
                   : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
               }`}
             >

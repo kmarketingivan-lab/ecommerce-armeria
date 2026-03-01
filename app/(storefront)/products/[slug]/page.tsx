@@ -93,7 +93,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
           {/* Price */}
           <div className="flex items-baseline gap-3">
-            <span className="text-3xl font-bold text-gray-900">
+            <span className="text-3xl font-bold text-red-700">
               {formatPrice(product.price)}
             </span>
             {hasDiscount && product.compare_at_price !== null && (

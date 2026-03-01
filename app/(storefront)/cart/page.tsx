@@ -16,7 +16,7 @@ export default async function CartPage() {
         <p className="mt-2 text-gray-500">Inizia a fare acquisti dal nostro catalogo.</p>
         <Link
           href="/products"
-          className="mt-6 inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+          className="mt-6 inline-flex items-center rounded-full bg-red-700 px-6 py-3 text-sm font-semibold text-white hover:bg-red-800"
         >
           Vai al catalogo
         </Link>
@@ -62,7 +62,7 @@ export default async function CartPage() {
 
         <Link
           href="/checkout"
-          className="mt-6 block w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white hover:bg-blue-700"
+          className="mt-6 block w-full rounded-full bg-red-700 px-6 py-3 text-center text-sm font-semibold text-white hover:bg-red-800"
         >
           Procedi al checkout
         </Link>

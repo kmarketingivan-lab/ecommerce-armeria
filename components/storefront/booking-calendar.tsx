@@ -125,10 +125,10 @@ function BookingCalendar({ serviceId, onSelectSlot, selectedDate, selectedSlot }
                 onClick={() => handleDayClick(day)}
                 className={`rounded-lg py-2 text-center text-sm transition-colors ${
                   isSelected
-                    ? "bg-blue-600 font-semibold text-white"
+                    ? "bg-red-700 font-semibold text-white"
                     : isPast
                       ? "text-gray-300 cursor-not-allowed"
-                      : "text-gray-700 hover:bg-blue-50"
+                      : "text-red-600 hover:bg-red-50"
                 }`}
               >
                 {format(day, "d")}
@@ -166,8 +166,8 @@ function BookingCalendar({ serviceId, onSelectSlot, selectedDate, selectedSlot }
                     onClick={() => onSelectSlot(selectedDate, slot)}
                     className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
                       isSlotSelected
-                        ? "border-blue-500 bg-blue-600 text-white"
-                        : "border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:bg-blue-50"
+                        ? "border-red-500 bg-red-700 text-white"
+                        : "border-gray-200 bg-white text-gray-700 hover:border-red-300 hover:bg-red-50"
                     }`}
                   >
                     {slot.start_time} - {slot.end_time}

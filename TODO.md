@@ -96,7 +96,7 @@
 ## FASE T4 — Homepage + Pagine Storefront
 
 ### Task T4.1 — Homepage
-- [ ] `app/(storefront)/page.tsx`:
+- [x] `app/(storefront)/page.tsx`:
   - Hero section: da `bg-gradient-to-br from-blue-600 to-blue-800` a `bg-neutral-900`
   - Hero title: da `text-4xl` a `text-4xl sm:text-5xl lg:text-6xl font-bold text-red-600` (rosso su nero, come Palmetto)
   - Hero subtitle: da `text-blue-100` a `text-neutral-300`
@@ -113,49 +113,49 @@
   - Prenotazioni CTA title: `text-white text-2xl sm:text-3xl font-bold`
   - Prenotazioni CTA subtitle: da `text-emerald-100` a `text-yellow-100`
   - Prenotazioni CTA button: da `bg-white text-emerald-700 hover:bg-emerald-50` a `bg-neutral-900 text-white hover:bg-neutral-800 rounded-full`
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.2 — Product Card
-- [ ] `components/storefront/product-card.tsx`:
+- [x] `components/storefront/product-card.tsx`:
   - Card border: da `border-gray-200` a `border-neutral-200`
   - Badge "In evidenza": da `bg-amber-500` a `bg-yellow-600`
   - Badge "Offerta": `bg-red-600` (già ok)
   - Product name hover: da `group-hover:text-blue-600` a `group-hover:text-red-600`
   - Price: `text-red-700 font-bold` (come Palmetto mostra i prezzi in rosso/oro)
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.3 — Catalog page
-- [ ] `app/(storefront)/products/page.tsx`: cambia ogni `text-blue-*` / `bg-blue-*` in `text-red-700` / `bg-red-50`. Titolo pagina `text-red-700 uppercase`. Link attivi filtri: `text-red-700 font-semibold`
-- [ ] `app/(storefront)/products/[slug]/page.tsx`: stesso trattamento. Bottone "Aggiungi al carrello": `bg-red-700 hover:bg-red-800 text-white rounded-full`. Prezzo: `text-red-700`
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/products/page.tsx`: cambia ogni `text-blue-*` / `bg-blue-*` in `text-red-700` / `bg-red-50`. Titolo pagina `text-red-700 uppercase`. Link attivi filtri: `text-red-700 font-semibold`
+- [x] `app/(storefront)/products/[slug]/page.tsx`: stesso trattamento. Bottone "Aggiungi al carrello": `bg-red-700 hover:bg-red-800 text-white rounded-full`. Prezzo: `text-red-700`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.4 — Cart + Checkout
-- [ ] `app/(storefront)/cart/page.tsx` e `app/(storefront)/cart/cart-items.tsx`: cambia accenti blue→red. Bottone "Procedi al checkout": `bg-red-700 hover:bg-red-800 text-white rounded-full`
-- [ ] `components/storefront/add-to-cart-button.tsx`: `bg-red-700 hover:bg-red-800 text-white`
-- [ ] `components/storefront/cart-icon.tsx`: counter badge da `bg-blue-600` a `bg-red-600`
-- [ ] `app/(storefront)/checkout/checkout-form.tsx`: accenti blue→red su focus ring e submit button
-- [ ] `app/(storefront)/checkout/success/page.tsx`: accenti blue→red
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/cart/page.tsx` e `app/(storefront)/cart/cart-items.tsx`: cambia accenti blue→red. Bottone "Procedi al checkout": `bg-red-700 hover:bg-red-800 text-white rounded-full`
+- [x] `components/storefront/add-to-cart-button.tsx`: `bg-red-700 hover:bg-red-800 text-white`
+- [x] `components/storefront/cart-icon.tsx`: counter badge da `bg-blue-600` a `bg-red-600`
+- [x] `app/(storefront)/checkout/checkout-form.tsx`: accenti blue→red su focus ring e submit button
+- [x] `app/(storefront)/checkout/success/page.tsx`: accenti blue→red
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.5 — Blog pages
-- [ ] `app/(storefront)/blog/page.tsx`: titoli `text-red-700 uppercase`, link "leggi" `text-red-600 hover:text-red-700`
-- [ ] `app/(storefront)/blog/[slug]/page.tsx`: titolo `text-neutral-900`, tag badges `bg-red-100 text-red-700`, link `text-red-600`
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/blog/page.tsx`: titoli `text-red-700 uppercase`, link "leggi" `text-red-600 hover:text-red-700`
+- [x] `app/(storefront)/blog/[slug]/page.tsx`: titolo `text-neutral-900`, tag badges `bg-red-100 text-red-700`, link `text-red-600`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.6 — Bookings pages
-- [ ] `app/(storefront)/bookings/page.tsx`: titolo `text-red-700 uppercase`, card servizi accenti red
-- [ ] `components/storefront/booking-calendar.tsx`: giorno selezionato `bg-red-700 text-white`, giorno disponibile `text-red-600`, hover `bg-red-50`
-- [ ] `components/storefront/booking-form.tsx`: submit button `bg-red-700`
-- [ ] `components/storefront/booking-wizard.tsx`: step attivo `text-red-700 border-red-700`, accenti blue→red
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/bookings/page.tsx`: titolo `text-red-700 uppercase`, card servizi accenti red
+- [x] `components/storefront/booking-calendar.tsx`: giorno selezionato `bg-red-700 text-white`, giorno disponibile `text-red-600`, hover `bg-red-50`
+- [x] `components/storefront/booking-form.tsx`: submit button `bg-red-700`
+- [x] `components/storefront/booking-wizard.tsx`: step attivo `text-red-700 border-red-700`, accenti blue→red
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T4.7 — Auth pages + Account
-- [ ] `app/(storefront)/auth/login/login-form.tsx`: submit `bg-red-700`, link `text-red-600`
-- [ ] `app/(storefront)/auth/register/register-form.tsx`: stesso
-- [ ] `app/(storefront)/auth/reset-password/reset-password-form.tsx`: stesso
-- [ ] `app/(storefront)/account/page.tsx`: accenti blue→red
-- [ ] `app/(storefront)/[slug]/page.tsx`: se ci sono accenti blue, cambia in red
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] `app/(storefront)/auth/login/login-form.tsx`: submit `bg-red-700`, link `text-red-600`
+- [x] `app/(storefront)/auth/register/register-form.tsx`: stesso
+- [x] `app/(storefront)/auth/reset-password/reset-password-form.tsx`: stesso
+- [x] `app/(storefront)/account/page.tsx`: accenti blue→red
+- [x] `app/(storefront)/[slug]/page.tsx`: se ci sono accenti blue, cambia in red
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 ---
 
 ## FASE T5 — Admin Panel (accenti)

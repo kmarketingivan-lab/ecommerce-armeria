@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {post.tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
-              <span key={tag} className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">
+              <span key={tag} className="rounded-full bg-red-100 px-3 py-1 text-xs text-red-700">
                 {tag}
               </span>
             ))}
@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* Back link */}
       <div className="mt-12 border-t border-gray-200 pt-6">
-        <Link href="/blog" className="text-sm font-medium text-blue-600 hover:text-blue-700">
+        <Link href="/blog" className="text-sm font-medium text-red-600 hover:text-red-700">
           &larr; Torna al blog
         </Link>
       </div>

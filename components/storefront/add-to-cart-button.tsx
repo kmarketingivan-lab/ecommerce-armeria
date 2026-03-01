@@ -36,7 +36,7 @@ function AddToCartButton({ productId, variantId, quantity }: AddToCartButtonProp
       type="button"
       onClick={() => void handleClick()}
       disabled={loading}
-      className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+      className="inline-flex items-center justify-center rounded-full bg-red-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-50"
     >
       {loading ? (
         <>

@@ -17,7 +17,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
+      <h1 className="text-3xl font-bold uppercase text-red-700">Blog</h1>
 
       {posts.length > 0 ? (
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -60,7 +60,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   )}
                 </div>
 
-                <h2 className="mt-2 text-lg font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-2">
+                <h2 className="mt-2 text-lg font-semibold text-gray-900 group-hover:text-red-600 line-clamp-2">
                   {post.title}
                 </h2>
 
@@ -92,7 +92,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <Link
               key={p}
               href={`/blog?page=${p}`}
-              className={`rounded-lg px-3 py-2 text-sm ${p === page ? "bg-blue-600 text-white" : "border border-gray-300 hover:bg-gray-50"}`}
+              className={`rounded-lg px-3 py-2 text-sm ${p === page ? "bg-red-700 text-white" : "border border-gray-300 hover:bg-gray-50"}`}
             >
               {p}
             </Link>

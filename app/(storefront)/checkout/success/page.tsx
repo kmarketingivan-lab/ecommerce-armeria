@@ -37,7 +37,7 @@ export default async function CheckoutSuccessPage({ searchParams }: SuccessPageP
         </Link>
         <Link
           href="/account"
-          className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+          className="rounded-lg bg-red-700 px-6 py-3 text-sm font-semibold text-white hover:bg-red-800"
         >
           I miei ordini
         </Link>
