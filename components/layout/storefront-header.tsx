@@ -39,9 +39,9 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-30 border-b border-gray-200 bg-white">
+    <header className="sticky top-0 z-30 border-b border-neutral-800 bg-neutral-900">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="text-xl font-bold text-gray-900">
+        <Link href="/" className="text-2xl font-bold text-white">
           My Ecommerce
         </Link>
 
@@ -52,7 +52,7 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors
-                ${isActive(link.href) ? "text-blue-600" : "text-gray-600 hover:text-gray-900"}`}
+                ${isActive(link.href) ? "text-red-500 font-semibold" : "text-neutral-300 hover:text-white"}`}
             >
               {link.label}
             </Link>
@@ -61,10 +61,10 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
 
         <div className="flex items-center gap-4">
           {/* Cart icon */}
-          <Link href="/cart" className="relative flex items-center text-gray-600 hover:text-gray-900">
+          <Link href="/cart" className="relative flex items-center text-neutral-300 hover:text-white">
             <ShoppingCart className="h-5 w-5" />
             {cartCount > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
                 {cartCount > 99 ? "99+" : cartCount}
               </span>
             )}
@@ -73,7 +73,7 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
           {/* Account / Login */}
           <Link
             href={isLoggedIn ? "/account" : "/auth/login"}
-            className="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900"
+            className="flex items-center gap-1 text-sm text-neutral-300 hover:text-white"
           >
             <User className="h-5 w-5" />
             <span className="hidden sm:inline">{isLoggedIn ? "Account" : "Accedi"}</span>
@@ -83,7 +83,7 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-md p-1 text-gray-600 hover:text-gray-900 md:hidden"
+            className="rounded-md p-1 text-neutral-300 hover:text-white md:hidden"
             aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -93,14 +93,14 @@ function StorefrontHeader({ cartCount, isLoggedIn }: StorefrontHeaderProps) {
 
       {/* Mobile navigation */}
       {mobileOpen && (
-        <nav className="border-t border-gray-200 bg-white px-4 py-3 md:hidden">
+        <nav className="border-t border-neutral-800 bg-neutral-900 px-4 py-3 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors
-                ${isActive(link.href) ? "bg-blue-50 text-blue-600" : "text-gray-600 hover:bg-gray-50"}`}
+                ${isActive(link.href) ? "bg-red-900/30 text-red-400" : "text-neutral-300 hover:bg-neutral-800"}`}
             >
               {link.label}
             </Link>

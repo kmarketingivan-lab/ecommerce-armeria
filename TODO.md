@@ -68,7 +68,7 @@
 ## FASE T3 — Layout Storefront
 
 ### Task T3.1 — Storefront Header
-- [ ] `components/layout/storefront-header.tsx`:
+- [x] `components/layout/storefront-header.tsx`:
   - Sfondo header: da `bg-white border-b border-gray-200` a `bg-neutral-900 border-b border-neutral-800`
   - Logo "My Ecommerce": da `text-gray-900` a `text-white font-bold text-2xl`
   - Nav links desktop: da `text-gray-600 hover:text-gray-900` a `text-neutral-300 hover:text-white`
@@ -81,16 +81,16 @@
   - Mobile nav links: da `text-gray-600 hover:bg-gray-50` a `text-neutral-300 hover:bg-neutral-800`
   - Mobile nav link attivo: da `bg-blue-50 text-blue-600` a `bg-red-900/30 text-red-400`
   - Header sticky: mantieni `sticky top-0 z-30`
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 
 ### Task T3.2 — Storefront Footer
-- [ ] `components/layout/storefront-footer.tsx`:
+- [x] `components/layout/storefront-footer.tsx`:
   - Sfondo footer: da `bg-gray-50 border-t border-gray-200` a `bg-neutral-900 border-t border-neutral-800`
   - Titoli sezioni (h3): da `text-gray-900` a `text-yellow-500 font-semibold uppercase text-xs tracking-wider`
   - Testi info: da `text-gray-600` a `text-neutral-400`
   - Link: da `text-gray-600 hover:text-gray-900` a `text-neutral-400 hover:text-white`
   - Copyright: da `text-gray-500 border-t border-gray-200` a `text-neutral-500 border-t border-neutral-800`
-- [ ] **Verifica**: `npx tsc --noEmit && npm run build`
+- [x] **Verifica**: `npx tsc --noEmit && npm run build`
 ---
 
 ## FASE T4 — Homepage + Pagine Storefront
