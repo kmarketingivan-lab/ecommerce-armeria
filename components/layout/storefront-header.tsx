@@ -38,7 +38,7 @@ function StorefrontHeader({ cartCount, isLoggedIn, categories = [] }: Storefront
 
   return (
     <header className="sticky top-0 z-30 border-b border-neutral-800 bg-neutral-900">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div className="container-fluid flex items-center justify-between py-3">
         <Link href="/" className="text-2xl font-bold text-white">
           Armeria Palmetto
         </Link>

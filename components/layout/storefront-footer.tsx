@@ -13,7 +13,7 @@ function StorefrontFooter({ siteName, contactEmail, contactPhone }: StorefrontFo
 
   return (
     <footer className="border-t border-neutral-800 bg-neutral-900">
-      <div className="mx-auto max-w-7xl px-4 py-10">
+      <div className="container-fluid py-10">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Store Info */}
           <div>

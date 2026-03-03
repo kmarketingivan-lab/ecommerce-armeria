@@ -26,7 +26,7 @@ const badges = [
 export function TrustBadges() {
   return (
     <section className="border-b border-neutral-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="container-fluid py-6">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {badges.map((badge) => (
             <div key={badge.label} className="flex items-center gap-3">

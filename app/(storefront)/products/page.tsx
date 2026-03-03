@@ -191,7 +191,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="container-fluid py-8">
       <h1 className="text-3xl font-bold uppercase text-red-700">Catalogo</h1>
 
       {/* Top bar: search, sort, per-page, view toggle */}

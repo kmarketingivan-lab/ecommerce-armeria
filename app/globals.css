@@ -10,3 +10,12 @@
     @apply font-bold;
   }
 }
+
+@layer components {
+  /* Container fluid: si adatta allo schermo, padding proporzionale */
+  .container-fluid {
+    width: 100%;
+    padding-left: clamp(1rem, 4vw, 4rem);
+    padding-right: clamp(1rem, 4vw, 4rem);
+  }
+}

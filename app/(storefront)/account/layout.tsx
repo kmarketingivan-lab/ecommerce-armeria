@@ -11,7 +11,7 @@ export default async function AccountLayout({
   if (!user) redirect("/auth/login");
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="container-fluid py-8">
       <div className="flex flex-col gap-8 lg:flex-row">
         <AccountSidebar />
         <main className="min-w-0 flex-1">{children}</main>

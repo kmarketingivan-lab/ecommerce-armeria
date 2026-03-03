@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ContattiPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="container-fluid py-8">
       <h1 className="text-3xl font-bold uppercase text-red-700">Contatti</h1>
       <p className="mt-2 text-gray-600">
         Hai domande? Contattaci compilando il modulo o tramite i nostri recapiti.

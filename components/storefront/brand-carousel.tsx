@@ -16,7 +16,7 @@ export function BrandCarousel({ brands }: BrandCarouselProps) {
 
   return (
     <section className="border-t border-neutral-200">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="container-fluid py-12">
         <h2 className="text-center text-3xl uppercase text-red-700">
           I nostri brand
         </h2>

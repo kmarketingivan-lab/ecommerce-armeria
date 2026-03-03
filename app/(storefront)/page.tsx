@@ -145,7 +145,7 @@ export default async function HomePage() {
 
       {/* Featured Products */}
       {featuredProducts.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="container-fluid py-16">
           <div className="flex items-center justify-between">
             <h2 className="text-3xl uppercase text-red-700">Prodotti in evidenza</h2>
             <Link
@@ -166,7 +166,7 @@ export default async function HomePage() {
       {/* New Arrivals */}
       {newArrivals.data.length > 0 && (
         <section className="bg-neutral-50">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="container-fluid py-16">
             <div className="flex items-center justify-between">
               <h2 className="text-3xl uppercase text-red-700">Nuovi arrivi</h2>
               <Link
@@ -188,7 +188,7 @@ export default async function HomePage() {
       {/* Promo / Discounted Products */}
       {discountedProducts.length > 0 && (
         <section className="bg-red-950">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="container-fluid py-16">
             <div className="flex items-center justify-between">
               <h2 className="text-3xl font-bold uppercase text-white">
                 Offerte
@@ -215,7 +215,7 @@ export default async function HomePage() {
       {/* Categories */}
       {activeCategories.length > 0 && (
         <section>
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="container-fluid py-16">
             <h2 className="text-3xl uppercase text-red-700">Le nostre categorie</h2>
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
               {activeCategories.map((category) => (
@@ -256,7 +256,7 @@ export default async function HomePage() {
 
       {/* Testimonials */}
       <section className="bg-neutral-50">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="container-fluid py-16">
           <h2 className="text-center text-3xl uppercase text-red-700">
             Cosa dicono i nostri clienti
           </h2>
@@ -287,7 +287,7 @@ export default async function HomePage() {
       </section>
 
       {/* Bookings CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="container-fluid py-16">
         <div className="rounded-2xl bg-yellow-600 p-8 text-white sm:p-12">
           <div className="max-w-xl">
             <h2 className="text-2xl font-bold text-white sm:text-3xl">Prenota un appuntamento</h2>
@@ -308,7 +308,7 @@ export default async function HomePage() {
 
       {/* Store Info */}
       <section className="bg-neutral-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="container-fluid py-16">
           <h2 className="text-center text-3xl uppercase text-red-500">
             Il nostro negozio
           </h2>
@@ -375,3 +375,4 @@ export default async function HomePage() {
     </div>
   );
 }
+
