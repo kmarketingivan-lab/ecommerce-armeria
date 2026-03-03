@@ -19,6 +19,7 @@ import {
   Settings,
   Menu,
   X,
+  Presentation,
 } from "lucide-react";
 import { PendingOrdersBadge } from "@/components/admin/pending-orders-badge";
 
@@ -59,6 +60,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Contenuti",
     items: [
+      { label: "Vetrina", href: "/admin/vetrina", icon: <Presentation className="h-5 w-5" /> },
       { label: "Blog", href: "/admin/blog", icon: <BookOpen className="h-5 w-5" /> },
       { label: "Pagine", href: "/admin/pages", icon: <FileText className="h-5 w-5" /> },
       { label: "Media", href: "/admin/media", icon: <Image className="h-5 w-5" /> },
