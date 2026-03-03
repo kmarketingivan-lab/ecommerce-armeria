@@ -177,14 +177,21 @@ export async function deleteProduct(
     const admin = await requireAdmin();
     const supabase = await createClient();
 
+    // Delete related product_images first (FK constraint)
+    await supabase.from("product_images").delete().eq("product_id", id);
+
+    // Hard delete the product
     const { error } = await supabase
       .from("products")
-      .update({ is_active: false })
+      .delete()
       .eq("id", id);
 
-    if (error) return { error: "Errore nell'eliminazione del prodotto" };
+    if (error) {
+      logger.error("Failed to delete product", { error: error.message });
+      return { error: "Errore nell'eliminazione: " + error.message };
+    }
 
-    await logAuditEvent(admin.id, "soft_delete", "product", id);
+    await logAuditEvent(admin.id, "delete", "product", id);
     revalidatePath("/admin/products");
     return { success: true };
   } catch (err) {
@@ -307,12 +314,17 @@ export async function bulkDeleteProducts(
   try {
     const admin = await requireAdmin();
     const supabase = await createClient();
+
+    // Delete related images first
+    await supabase.from("product_images").delete().in("product_id", ids);
+
+    // Hard delete
     const { error } = await supabase
       .from("products")
-      .update({ is_active: false })
+      .delete()
       .in("id", ids);
 
-    if (error) return { error: "Errore nell'eliminazione massiva" };
+    if (error) return { error: "Errore nell'eliminazione massiva: " + error.message };
     await logAuditEvent(admin.id, "bulk_delete", "products", "bulk", undefined, { ids });
     revalidatePath("/admin/products");
     return { success: true };
