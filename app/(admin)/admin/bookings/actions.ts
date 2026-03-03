@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import {
   bookingSchema,
@@ -66,7 +66,7 @@ async function updateBookingStatus(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: booking } = await supabase
       .from("bookings")
@@ -118,7 +118,7 @@ export async function updateAvailability(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     if (data.id) {
       const { error } = await supabase
@@ -174,7 +174,7 @@ export async function createService(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { data, error } = await supabase
       .from("booking_services")
       .insert(stripUndefined(parsed.data))
@@ -219,7 +219,7 @@ export async function updateService(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("booking_services")
       .update(stripUndefined(parsed.data))
@@ -246,7 +246,7 @@ export async function deleteService(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { error } = await supabase
       .from("booking_services")
@@ -294,7 +294,7 @@ export async function createBooking(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Verify slot is still available (race condition possible)
     const { data: conflicts } = await supabase

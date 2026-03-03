@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { nanoid } from "nanoid";
 
@@ -17,7 +17,7 @@ export type HeroSlide = {
 };
 
 export async function getHeroSlides(): Promise<HeroSlide[]> {
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   const { data } = await supabase
     .from("hero_slides" as any)
     .select("*")
@@ -30,7 +30,7 @@ export async function createHeroSlide(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { count } = await supabase
       .from("hero_slides" as any)
       .select("*", { count: "exact", head: true });
@@ -58,7 +58,7 @@ export async function updateHeroSlide(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("hero_slides" as any)
       .update({
@@ -84,7 +84,7 @@ export async function deleteHeroSlide(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase.from("hero_slides" as any).delete().eq("id", id);
     if (error) return { error: error.message };
     revalidatePath("/");
@@ -100,7 +100,7 @@ export async function reorderHeroSlides(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     for (const s of slides) {
       await supabase.from("hero_slides" as any).update({ sort_order: s.sort_order }).eq("id", s.id);
     }
@@ -118,7 +118,7 @@ export async function toggleHeroSlide(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("hero_slides" as any)
       .update({ is_active: isActive })
@@ -143,7 +143,7 @@ export async function uploadHeroSlideImage(
     const allowed = ["image/jpeg", "image/png", "image/webp"];
     if (!allowed.includes(file.type)) return { error: "Formato non supportato. Usa JPG, PNG o WebP." };
     if (file.size > 5 * 1024 * 1024) return { error: "File troppo grande. Max 5MB." };
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const ext = file.name.split(".").pop() ?? "jpg";
     const path = `hero/${slideId || nanoid()}.${ext}`;
     const { error: uploadError } = await supabase.storage

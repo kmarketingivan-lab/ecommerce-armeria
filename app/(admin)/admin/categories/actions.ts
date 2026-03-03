@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { categorySchema } from "@/lib/validators/categories";
 import { logAuditEvent } from "@/lib/utils/audit";
@@ -34,7 +34,7 @@ export async function createCategory(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { data, error } = await supabase
       .from("categories")
       .insert(stripUndefined(parsed.data))
@@ -83,7 +83,7 @@ export async function updateCategory(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("categories")
       .update(stripUndefined(parsed.data))
@@ -113,7 +113,7 @@ export async function deleteCategory(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { error } = await supabase
       .from("categories")
@@ -144,7 +144,7 @@ export async function reorderCategories(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const updates = ids.map((id, index) =>
       supabase

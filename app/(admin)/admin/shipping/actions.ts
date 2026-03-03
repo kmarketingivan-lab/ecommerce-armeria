@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { logAuditEvent } from "@/lib/utils/audit";
 import { logger } from "@/lib/utils/logger";
@@ -29,7 +29,7 @@ export async function createShippingZone(
       is_active: formData.get("is_active") === "true",
     };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { data, error } = await supabase
       .from("shipping_zones")
       .insert(stripUndefined(payload))
@@ -73,7 +73,7 @@ export async function updateShippingZone(
       is_active: formData.get("is_active") === "true",
     };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase.from("shipping_zones").update(stripUndefined(payload)).eq("id", id);
 
     if (error) {
@@ -95,7 +95,7 @@ export async function deleteShippingZone(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase.from("shipping_zones").delete().eq("id", id);
 
     if (error) {

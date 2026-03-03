@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { logAuditEvent } from "@/lib/utils/audit";
 import { logger } from "@/lib/utils/logger";
@@ -25,7 +25,7 @@ export async function createBrand(
       is_active: formData.get("is_active") === "true",
     };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { data, error } = await supabase
       .from("brands")
       .insert(payload)
@@ -65,7 +65,7 @@ export async function updateBrand(
       is_active: formData.get("is_active") === "true",
     };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase.from("brands").update(payload).eq("id", id);
 
     if (error) {
@@ -87,7 +87,7 @@ export async function deleteBrand(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { error } = await supabase.from("brands").delete().eq("id", id);
 

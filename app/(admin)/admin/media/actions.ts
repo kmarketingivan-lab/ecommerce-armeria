@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { mediaUploadSchema, mediaAltTextSchema, ALL_ALLOWED_MIMES } from "@/lib/validators/media";
 import { logAuditEvent } from "@/lib/utils/audit";
@@ -48,7 +48,7 @@ export async function uploadMedia(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Upload to Supabase Storage
     const storagePath = `${folder}/${safeFilename}`;
@@ -105,7 +105,7 @@ export async function deleteMedia(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Get file info to delete from storage
     const { data: media } = await supabase
@@ -154,7 +154,7 @@ export async function updateMediaAlt(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("media")
       .update({ alt_text: parsed.data.alt_text })

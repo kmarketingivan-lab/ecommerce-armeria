@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { pageSchema } from "@/lib/validators/pages";
 import { sanitizeHtml } from "@/lib/utils/sanitize";
@@ -37,7 +37,7 @@ export async function createPage(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const insertData = stripUndefined({
       ...parsed.data,
       published_at: parsed.data.is_published ? new Date().toISOString() : null,
@@ -93,7 +93,7 @@ export async function updatePage(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("pages")
       .update(stripUndefined(parsed.data))
@@ -123,7 +123,7 @@ export async function deletePage(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { error } = await supabase.from("pages").delete().eq("id", id);
 
@@ -150,7 +150,7 @@ export async function togglePublished(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: page } = await supabase
       .from("pages")

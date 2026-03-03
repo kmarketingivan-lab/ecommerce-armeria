@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { nanoid } from "nanoid";
 
@@ -28,7 +28,7 @@ export async function uploadProductImage(
     if (!allowed.includes(file.type)) return { error: "Formato non supportato. Usa JPG, PNG, WebP o GIF." };
     if (file.size > 5 * 1024 * 1024) return { error: "File troppo grande. Max 5MB." };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const ext = file.name.split(".").pop() ?? "jpg";
     const path = `products/${productId}/${nanoid()}.${ext}`;
 
@@ -80,7 +80,7 @@ export async function addProductImageUrl(
     await requireAdmin();
     if (!url.startsWith("http")) return { error: "URL non valido" };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { count } = await supabase
       .from("product_images")
       .select("*", { count: "exact", head: true })
@@ -116,7 +116,7 @@ export async function setProductImagePrimary(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     await supabase
       .from("product_images")
@@ -143,7 +143,7 @@ export async function reorderProductImages(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     for (const item of order) {
       await supabase
@@ -168,7 +168,7 @@ export async function deleteProductImage(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Try to delete from storage if it's a Supabase-hosted file
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
@@ -200,7 +200,7 @@ export async function updateProductImageAlt(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("product_images")
       .update({ alt_text: altText })
@@ -214,7 +214,7 @@ export async function updateProductImageAlt(
 
 /** Fetch all images for a product */
 export async function getProductImages(productId: string): Promise<ProductImage[]> {
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   const { data } = await supabase
     .from("product_images")
     .select("*")

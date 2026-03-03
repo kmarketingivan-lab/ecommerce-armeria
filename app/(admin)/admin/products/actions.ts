@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { productSchema, parseCategoryId } from "@/lib/validators/products";
 import { slugify } from "@/lib/utils/slugify";
@@ -84,7 +84,7 @@ export async function createProduct(
       return { error: msg };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { data, error } = await supabase
       .from("products")
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -128,7 +128,7 @@ export async function updateProduct(
       return { error: msg };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: oldProduct } = await supabase
       .from("products")
@@ -175,7 +175,7 @@ export async function deleteProduct(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Delete related product_images first (FK constraint)
     await supabase.from("product_images").delete().eq("product_id", id);
@@ -205,7 +205,7 @@ export async function toggleProductActive(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: product } = await supabase
       .from("products")
@@ -241,7 +241,7 @@ export async function updateProductStock(
     if (!Number.isInteger(quantity) || quantity < 0)
       return { error: "La quantità deve essere un intero non negativo" };
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("products")
       .update({ stock_quantity: quantity })
@@ -264,7 +264,7 @@ export async function reorderProductImages(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const updates = imageIds.map((imageId, index) =>
       supabase
@@ -292,7 +292,7 @@ export async function bulkUpdateProducts(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("products")
       .update({ is_active: isActive })
@@ -313,7 +313,7 @@ export async function bulkDeleteProducts(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     // Delete related images first
     await supabase.from("product_images").delete().in("product_id", ids);

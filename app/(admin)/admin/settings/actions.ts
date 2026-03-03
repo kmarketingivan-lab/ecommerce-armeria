@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidateTag } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { settingUpdateSchema } from "@/lib/validators/site-settings";
 import { logAuditEvent } from "@/lib/utils/audit";
@@ -25,7 +25,7 @@ export async function updateSetting(
       return { error: parsed.error.issues[0]?.message ?? "Dati non validi" };
     }
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("site_settings")
       .update({ value: parsed.data.value })
@@ -55,7 +55,7 @@ export async function updateSettings(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     for (const { key, value } of settings) {
       const parsed = settingUpdateSchema.safeParse({ key, value });

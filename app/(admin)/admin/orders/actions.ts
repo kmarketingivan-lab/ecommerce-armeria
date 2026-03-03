@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth/helpers";
 import { z } from "zod/v4";
 import { logAuditEvent } from "@/lib/utils/audit";
@@ -32,7 +32,7 @@ export async function updateOrderStatus(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: order } = await supabase
       .from("orders")
@@ -95,7 +95,7 @@ export async function setPickupDocumentVerified(
 ): Promise<{ success: boolean } | { error: string }> {
   try {
     const admin = await requireAdmin();
-    const supabase = await createClient();
+    const supabase = createAdminClient();
     const { error } = await supabase
       .from("orders")
       .update({ pickup_document_verified: verified })
@@ -131,7 +131,7 @@ export async function addOrderNote(
     }
     const validatedNote = parsed.data.note;
 
-    const supabase = await createClient();
+    const supabase = createAdminClient();
 
     const { data: order } = await supabase
       .from("orders")
