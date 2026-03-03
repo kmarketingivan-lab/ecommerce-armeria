@@ -1,0 +1,14 @@
+  // ── Reorder ──────────────────────────────────────────────
+  const handleMove = async (index: number, dir: -1 | 1) => {
+    const newImages = [...images];
+    const swapIndex = index + dir;
+    if (swapIndex < 0 || swapIndex >= newImages.length) return;
+    const a = newImages[index];
+    const b = newImages[swapIndex];
+    if (!a || !b) return;
+    newImages[index] = b;
+    newImages[swapIndex] = a;
+    const reordered = newImages.map((img, i) => ({ ...img, sort_order: i }));
+    setImages(reordered);
+    await reorderProductImages(productId, reordered.map((img) => ({ id: img.id, sort_order: img.sort_order })));
+  };
