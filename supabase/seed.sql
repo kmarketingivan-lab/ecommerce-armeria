@@ -75,21 +75,21 @@ INSERT INTO products (id, name, slug, description, rich_description, price, comp
 -- PRODUCT IMAGES (alt_text not alt)
 -- ============================================
 INSERT INTO product_images (id, product_id, url, alt_text, sort_order, is_primary) VALUES
-  ('c0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Beretta+92FS', 'Beretta 92FS', 1, true),
-  ('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'https://placehold.co/600x600/333333/ffffff?text=Beretta+92FS+Lato', 'Beretta 92FS vista laterale', 2, false),
-  ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000002', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Glock+17+Gen5', 'Glock 17 Gen5', 1, true),
-  ('c0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000003', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Sig+Sauer+P226', 'Sig Sauer P226', 1, true),
-  ('c0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000004', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+75+SP-01', 'CZ 75 SP-01 Shadow', 1, true),
-  ('c0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000005', 'https://placehold.co/600x600/1a1a1a/ffffff?text=S%26W+M%26P9', 'Smith Wesson MP9', 1, true),
-  ('c0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000006', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Benelli+Raffaello', 'Benelli Raffaello Crio', 1, true),
-  ('c0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000007', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Beretta+686+SP', 'Beretta 686 Silver Pigeon', 1, true),
-  ('c0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000008', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Franchi+Affinity', 'Franchi Affinity 3', 1, true),
-  ('c0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000009', 'https://placehold.co/600x600/1a1a1a/ffffff?text=CZ+457+Varmint', 'CZ 457 Varmint', 1, true),
-  ('c0000000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000010', 'https://placehold.co/600x600/1a1a1a/ffffff?text=Tikka+T3x+Lite', 'Tikka T3x Lite', 1, true),
-  ('c0000000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000016', 'https://placehold.co/600x600/c62828/ffffff?text=500+Bangs', '500 Bangs', 1, true),
-  ('c0000000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000017', 'https://placehold.co/600x600/c62828/ffffff?text=Adrenaline', 'Adrenaline', 1, true),
-  ('c0000000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000018', 'https://placehold.co/600x600/c62828/ffffff?text=Battaglia+Assietta', 'Battaglia Assietta', 1, true),
-  ('c0000000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000021', 'https://placehold.co/600x600/333333/ffffff?text=Holosun+HS510C', 'Holosun HS510C', 1, true);
+  ('c0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'https://upload.wikimedia.org/wikipedia/commons/9/98/Beretta_92_FS_9x21_IMI.jpg', 'Beretta 92FS', 1, true),
+  ('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000001', 'https://upload.wikimedia.org/wikipedia/commons/9/98/Beretta_92_FS_9x21_IMI.jpg', 'Beretta 92FS vista laterale', 2, false),
+  ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000002', 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Glock_17C_cropped.jpg', 'Glock 17 Gen5', 1, true),
+  ('c0000000-0000-0000-0000-000000000004', 'b0000000-0000-0000-0000-000000000003', 'https://upload.wikimedia.org/wikipedia/commons/9/97/SIG_P226_9mm_full.jpg', 'Sig Sauer P226', 1, true),
+  ('c0000000-0000-0000-0000-000000000005', 'b0000000-0000-0000-0000-000000000004', 'https://upload.wikimedia.org/wikipedia/commons/1/16/CZ75_full.jpg', 'CZ 75 SP-01 Shadow', 1, true),
+  ('c0000000-0000-0000-0000-000000000006', 'b0000000-0000-0000-0000-000000000005', 'https://upload.wikimedia.org/wikipedia/commons/0/08/Smith_Wesson_MP_9mm.jpg', 'Smith Wesson MP9', 1, true),
+  ('c0000000-0000-0000-0000-000000000007', 'b0000000-0000-0000-0000-000000000006', 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Benelli_M2.jpg', 'Benelli Raffaello Crio', 1, true),
+  ('c0000000-0000-0000-0000-000000000008', 'b0000000-0000-0000-0000-000000000007', 'https://upload.wikimedia.org/wikipedia/commons/4/47/Beretta_686_Silver_Pigeon_-_right_1.jpg', 'Beretta 686 Silver Pigeon', 1, true),
+  ('c0000000-0000-0000-0000-000000000009', 'b0000000-0000-0000-0000-000000000008', 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Franchi_612VS.jpg', 'Franchi Affinity 3', 1, true),
+  ('c0000000-0000-0000-0000-000000000010', 'b0000000-0000-0000-0000-000000000009', 'https://upload.wikimedia.org/wikipedia/commons/5/58/CZ_452_American.jpg', 'CZ 457 Varmint', 1, true),
+  ('c0000000-0000-0000-0000-000000000011', 'b0000000-0000-0000-0000-000000000010', 'https://upload.wikimedia.org/wikipedia/commons/1/16/Tikka_T3.jpg', 'Tikka T3x Lite', 1, true),
+  ('c0000000-0000-0000-0000-000000000012', 'b0000000-0000-0000-0000-000000000016', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Fireworks_in_Glendale_Arizona.jpg', '500 Bangs', 1, true),
+  ('c0000000-0000-0000-0000-000000000013', 'b0000000-0000-0000-0000-000000000017', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Fireworks_in_Glendale_Arizona.jpg', 'Adrenaline', 1, true),
+  ('c0000000-0000-0000-0000-000000000014', 'b0000000-0000-0000-0000-000000000018', 'https://upload.wikimedia.org/wikipedia/commons/d/da/Fireworks_in_Glendale_Arizona.jpg', 'Battaglia Assietta', 1, true),
+  ('c0000000-0000-0000-0000-000000000015', 'b0000000-0000-0000-0000-000000000021', 'https://upload.wikimedia.org/wikipedia/commons/5/52/EOTech_XPS2.jpg', 'Holosun HS510C', 1, true);
 
 -- ============================================
 -- PRODUCT VARIANTS (price_adjustment, stock_quantity, attributes JSONB)
