@@ -15,11 +15,16 @@ export async function middleware(request: NextRequest) {
   response.headers.set("X-XSS-Protection", "1; mode=block");
   response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-  const isLocal = supabaseUrl.startsWith("http://localhost") || supabaseUrl.startsWith("http://127.0.0.1");
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+  const isLocal =
+    supabaseUrl.startsWith("http://localhost") ||
+    supabaseUrl.startsWith("http://127.0.0.1");
+
+  // connect-src: include both https:// and wss:// for Supabase Realtime WebSocket
   const cspConnectSrc = isLocal
-    ? `'self' ${supabaseUrl} https://*.supabase.co https://api.stripe.com`
-    : `'self' https://*.supabase.co https://api.stripe.com`;
+    ? `'self' ${supabaseUrl} ${supabaseUrl.replace("http://", "ws://")} https://*.supabase.co wss://*.supabase.co https://api.stripe.com`
+    : `'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com`;
+
   response.headers.set(
     "Content-Security-Policy",
     [
@@ -52,7 +57,7 @@ export async function middleware(request: NextRequest) {
       .eq("id", user.id)
       .single();
 
-    if (!profile || profile.role !== "admin") {
+    if (!profile || (profile as { role: string }).role !== "admin") {
       return NextResponse.redirect(new URL("/", request.url));
     }
   }
