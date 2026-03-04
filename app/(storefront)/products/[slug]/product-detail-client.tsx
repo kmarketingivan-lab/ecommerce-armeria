@@ -5,7 +5,7 @@ import type { ProductVariant } from "@/types/database";
 import { VariantSelector } from "@/components/storefront/variant-selector";
 import { QuantitySelector } from "@/components/storefront/quantity-selector";
 import { AddToCartButton } from "@/components/storefront/add-to-cart-button";
-import { formatPrice } from "@/components/storefront/product-card";
+import { formatPrice } from "@/lib/utils/format";
 
 interface ProductDetailClientProps {
   productId: string;

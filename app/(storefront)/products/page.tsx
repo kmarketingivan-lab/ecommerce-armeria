@@ -8,7 +8,7 @@ import { ProductCard } from "@/components/storefront/product-card";
 import { ProductFilters } from "@/components/storefront/product-filters";
 import { ViewToggle } from "@/components/storefront/view-toggle";
 import { StockBadge } from "@/components/storefront/stock-badge";
-import { formatPrice } from "@/components/storefront/product-card";
+import { formatPrice } from "@/lib/utils/format";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { generateCanonicalUrl } from "@/lib/seo/metadata";
 import type { Product, ProductImage } from "@/types/database";

@@ -41,3 +41,11 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Local test scripts
+test_*.js
+debug_*.js
+update_*.js
+fix_*.py
+fix_*.sql
+

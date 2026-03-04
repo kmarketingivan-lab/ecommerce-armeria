@@ -6,17 +6,10 @@ import type { Product, ProductImage } from "@/types/database";
 import { StockBadge } from "@/components/storefront/stock-badge";
 import { QuickViewModal } from "@/components/storefront/quick-view-modal";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { formatPrice } from "@/lib/utils/format";
 
 interface ProductCardProps {
   product: Product & { product_images?: ProductImage[] | undefined; brand_name?: string | undefined };
-}
-
-/** Formats a number as EUR currency string. */
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat("it-IT", {
-    style: "currency",
-    currency: "EUR",
-  }).format(price);
 }
 
 function ProductCard({ product }: ProductCardProps) {
@@ -119,4 +112,4 @@ function ProductCard({ product }: ProductCardProps) {
   );
 }
 
-export { ProductCard, formatPrice };
+export { ProductCard };
